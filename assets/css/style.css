@@ -35,20 +35,12 @@ h3 {
   transform: scale(0.9, 0.9);
   transition: transform 0.2s;
 }
-@media screen and (max-width: 576px) {
-  h1 {
-    font-size: 50px;
-    margin-top: 30px;
-  }
-  h3 {
-    font-size: 25px;
-  }
-}
 .nav-link {
   color: #555555;
 }
 .activeNavItem {
   border-bottom: 2px solid #6a0572;
+  transition: border-bottom 1.5s;
 }
 .nav-link:hover {
   color: #6a0572;
@@ -57,4 +49,76 @@ h3 {
 }
 .logo {
   color: #6a0572;
+}
+
+.carrousel {
+  margin-top: 50px;
+  cursor: pointer;
+  width: 750px;
+  height: 245px;
+  position: relative;
+  overflow: hidden;
+}
+.slide {
+  width: 750px;
+  height: 245px;
+  border: 5px solid #6a0572;
+  position: absolute;
+}
+.pages {
+  position: absolute;
+  bottom: 50px;
+  right: 12px;
+}
+
+span {
+  background-color: whitesmoke;
+  color: #6a0572;
+  font-weight: 100;
+  padding: 5px;
+  margin: 0 2px;
+
+  border-radius: 2px;
+}
+span:hover {
+  background-color: #6a0572;
+  color: whitesmoke;
+  cursor: pointer;
+}
+.title {
+  background-color: #6a0572;
+  position: absolute;
+  bottom: 0px;
+  padding: 5px;
+  width: 100%;
+}
+.active {
+  background-color: #6a0572;
+  color: whitesmoke;
+}
+.activeSlide {
+}
+#slide1 {
+  background: url("/assets/images/Capture\ d’écran\ \(80\).png") center/cover
+    no-repeat;
+}
+#slide2 {
+  background: url("/assets/images/Capture\ d’écran\ \(81\).png") center/cover
+    no-repeat;
+}
+
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 30px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  .carrousel {
+    width: 100%;
+  }
+  .slide {
+    width: 100%;
+  }
 }
