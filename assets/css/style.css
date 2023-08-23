@@ -120,3 +120,19 @@ span:hover {
     width: 100%;
   }
 }
+@media screen and (max-width: 452px) {
+  .container.my-3 img {
+    width: 40px;
+  }
+  .container.my-3 h6 {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 281px) {
+  .container.my-3 img {
+    width: 23px;
+  }
+  .container.my-3 h6 {
+    font-size: 8px;
+  }
+}
