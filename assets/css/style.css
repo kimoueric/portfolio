@@ -99,12 +99,10 @@ span:hover {
 .activeSlide {
 }
 #slide1 {
-  background: url("/assets/images/Capture\ d’écran\ \(80\).png") center/cover
-    no-repeat;
+  background: url("/assets/images/projet1.png") center/cover no-repeat;
 }
 #slide2 {
-  background: url("/assets/images/Capture\ d’écran\ \(81\).png") center/cover
-    no-repeat;
+  background: url("/assets/images/projet2.png") center/cover no-repeat;
 }
 
 @media screen and (max-width: 576px) {
