@@ -65,6 +65,7 @@ h3 {
   border: 5px solid #6a0572;
   position: absolute;
 }
+
 .pages {
   position: absolute;
   bottom: 50px;
@@ -99,10 +100,10 @@ span:hover {
 .activeSlide {
 }
 #slide1 {
-  background: url("/assets/images/projet1.png") center/cover no-repeat;
+  background: url("/assets/images/pr1.png") center/cover no-repeat;
 }
 #slide2 {
-  background: url("/assets/images/projet2.png") center/cover no-repeat;
+  background: url("/assets/images/pr2.png") center/cover no-repeat;
 }
 
 @media screen and (max-width: 576px) {
