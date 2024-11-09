@@ -4,56 +4,158 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#141414',
+              secondary :' #0B0B0B'
+            },
+            boxShadow:{
+              '2xl' : 'inset 0px 4px 8px  rgba(255, 255, 255, 0.2)' ,
+              '3xl' : ' 0px 4px 8px  rgba(255, 255, 255, 0.2)'
+            } ,
+            screens : {
+              '3xl': '1537px'
+            }
+          }
+        }
+      }
+    </script>
+
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <title>Acceuil</title>
   </head>
-  <body>
-    <header class="container p-sm-0">
-      <nav class="navbar navbar-expand-lg p-lg-3">
-        <div class="container-fluid">
-          <a class="navbar-brand fs-3 logo" href="#"> <\Kdev2> </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse navItem d-lg-flex justify-content-end"
-            id="navbarTogglerDemo02"
-          >
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item mx-lg-5">
-                <a class="nav-link activeNavItem" href="#">Acceuil</a>
-              </li>
-              <li class="nav-item mx-lg-5">
-                <a class="nav-link" href="#about">A propos de moi</a>
-              </li>
-              <!-- supression -->
-              <!-- <li class="nav-item mx-lg-5">
-                <a class="nav-link" href="#projects">Projets</a>
-              </li> -->
-              <li class="nav-item mx-lg-5">
-                <a class="nav-link" href="#contact">Contact</a>
-              </li>
-            </ul>
+  <body class="h-screen p-3">
+    <div class=" border-4xl h-full  bg-secondary rounded-xl shadow-2xl p-5 flex flex-col justify-between relative">
+
+      <header class=" h-[10%] ">
+        <div class="flex items-center justify-between">
+
+          <h5 class="text-xl">Kimou.dev</h5>
+          <div class=" w-[600px] flex justify-between p-2 shadow-2xl rounded-2xl">
+            <button class="ms-2">Accueil</button>
+            <button class="me-8">Compétences</button>
+            <button class="me-8">Projets</button>
+            <button class="me-2">À propos</button>
+            
+          </div>
+          <div class="flex items-center">
+            <a href="" class=" flex items-center me-4"><i class="fi fi-brands-facebook text-xl"></i></a>
+            <a href="" class=" flex items-center me-4"><i class="fi fi-brands-github text-xl"></i></a>
+            <a href="" class=" flex items-center me-4"><i class="fi fi-brands-google text-xl"></i></a>
+            <a href="" class=" flex items-center "><i class="fi fi-brands-twitter-alt text-xl"></i></a>
           </div>
         </div>
-      </nav>
-    </header>
-    <main class="container p-sm-0">
-      <!-- ma description -->
+        
+      </header>
+        <main class="h-[90%]  flex justify-center">
+          <!-- Acceuil content  -->
+          <div class="flex justify-between items-center ">
+         
+          <div class=" w-[80%] flex items-center flex-col text-container ">
+           <p class="text-[25px] md:text-[38px] xl:text-[53px] 3xl:text-[78px]  text-start 2xl:w-[80%] 3xl:leading-normal animate__animated animate__fadeInLeft">
+            Créer des solutions web 🌐 innovantes 💡, orchestrer les données avec précision grâce à
+             <span class="bg-zinc-50 text-primary p-1 3xl:p-0 rounded-2xl">Apache Airflow ⚙️</span>. Mon expertise, votre réussite.     </p>
+            
+            <div class="btn-container mt-[4rem]  ">
+
+              <button class="border p-3 rounded-sm">
+                Télécharger mon CV
+              </button>
+
+              
+            </div>
+          </div>
+          <div class="">
+            <img src="./assets/images/airflow.png" alt="" class="animate__animated animate__fadeInRight">
+          </div>
+        </div>
+
+        <!-- Compétences content -->
+        
+        <!-- <div class="flex justify-between items-center ">
+         
+          <div class=" 2xl:w-[320px] m-2 3xl:w-[400px]  p-2 2xl:h-[440px] 3xl:h-[500px] shadow-2xl ">
+            <div>
+
+              <img src="./assets/images/airflow_tech.png" alt="">
+            </div>
+            <div>
+              <p class="2xl:text-[0.8rem] 3xl:text-[0.9rem] text-justify p-2">
+                Passionné par l'orchestration des données, je développe mes compétences avec Apache Airflow pour automatiser
+                 et optimiser des workflows de données. Grâce à mon expérience avec la création de DAGs, la gestion de flux d'ETL et l'intégration de systèmes, 
+                 je m'efforce d'améliorer la fiabilité et l'efficacité des processus.
+                 Toujours prêt à apprendre et à relever de nouveaux défis pour maîtriser cet outil puissant.
+              </p>
+            </div>
+          </div>
+
+          <div class=" 2xl:w-[320px] m-2 3xl:w-[400px]  p-2 2xl:h-[440px] 3xl:h-[500px] shadow-2xl">
+            <div>
+
+              <img src="./assets/images/docker.png" alt="">
+            </div>
+            <div>
+              <p class="2xl:text-[0.8rem] 3xl:text-[0.9rem] text-justify p-2">
+                Enthousiaste de la conteneurisation, je développe mes compétences avec Docker pour créer des environnements de développement reproductibles et des déploiements robustes. 
+                De la construction d'images personnalisées à l'orchestration de services en conteneurs, je m'efforce de simplifier et d'optimiser les processus de déploiement. 
+                Prêt à relever de nouveaux défis .
+              </p>
+            </div>
+          </div>
+          <div class=" 2xl:w-[320px] m-2 3xl:w-[400px]  p-2 2xl:h-[440px] 3xl:h-[500px] shadow-2xl">
+            <div>
+
+              <img src="./assets/images/js.png" alt="" class="filter grayscale hover:grayscale-0 transition duration-300 ease-in-out">
+            </div>
+            <div>
+              <p class="2xl:text-[0.8rem] 3xl:text-[0.9rem] text-justify p-2">
+                Développeur engagé en JavaScript, je crée des solutions performantes et dynamiques pour le web. De la manipulation du DOM à l'écriture de scripts robustes, 
+                j'utilise les meilleures pratiques pour construire des expériences utilisateur efficaces et fluides. 
+                Toujours en quête d'optimisation et de clarté, je mets mon expertise au service de projets web modernes.
+              </p>
+            </div>
+          </div>
+          <div class=" 2xl:w-[320px] m-2 3xl:w-[400px]  p-2 2xl:h-[440px] 3xl:h-[500px] shadow-2xl">
+            <div>
+
+              <img src="./assets/images/react.png" alt="">
+            </div>
+            <div>
+              <p class="2xl:text-[0.8rem] 3xl:text-[0.9rem] text-justify p-2">
+                Développeur spécialisé en React, je conçois des interfaces utilisateur modernes et performantes. Grâce à une maîtrise des composants, des hooks et de la gestion d'état, 
+                je construis des applications web réactives et maintenables. Mon objectif est de créer des expériences utilisateur fluides et engageantes,
+                 tout en optimisant la performance et l'extensibilité du code.
+              </p>
+            </div>
+          </div>
+        </div> -->
+        </main>
+
+        <footer class="h-[10%] flex items-center justify-center">
+          <!-- <h5>copyright</h5> -->
+          <h6>copyright &copy; <a>kimou</a> 2024</h6>
+        </footer>
+        <div class="slide-container absolute  bottom-6 w-[100px] 3xl:w-[150px] h-[90px] right-4">
+          <div class="flex items-center  w-full h-full justify-between">
+
+            <i class="fi fi-ss-angle-circle-left text-3xl"></i>
+            <i class="fi fi-ss-angle-circle-right text-3xl"></i>
+          </div>
+
+        </div>
+    </div>
+    <!-- <main class="container p-sm-0">
+     
 
       <div class="container p-lg-4 mydescription">
         <div class="row">
@@ -82,7 +184,7 @@
         </div>
       </div>
 
-      <!-- Competences -->
+      
 
       <div class="container-fluid p-lg-4 my-3">
         <div class="row">
@@ -202,7 +304,7 @@
           </div>
         </div>
       </div>
-      <!-- Ma description -->
+     
 
       <div class="container">
         <div class="row text-center">
@@ -233,46 +335,9 @@
           </div>
         </div>
       </div>
-      <!-- Mes projets -->
-
-      <!-- <div class="container-fluid p-lg-4 my-3">
-        <div class="row" id="projects">
-          <div class="col-sm-12 col-lg-4">
-            <div
-              class="container d-lg-flex justify-content-center flex-column align-items-center my-3"
-            >
-              <h1>3+</h1>
-              <div>
-                <h5>Expériences</h5>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-lg-8">
-            <h2 class="text-center">Projets personnel</h2>
-            <div class="carrousel">
-              <div class="slide" id="slide1">
-                <div class="title text-light">
-                  <h6 class="my-3">Générateur de mot de passe</h6>
-                </div>
-              </div>
-
-              <div class="slide" id="slide2">
-                <div class="title text-light">
-                  <h6 class="my-3">Compte à rebours</h6>
-                </div>
-              </div>
-
-              <div class="pages">
-                <span class="p-2">1</span>
-                <span class="p-2">2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    </main>
-    <footer class="container p-sm-0">
+     
+    </main> -->
+    <!-- <footer class="container p-sm-0">
       <div class="container">
         <div class="row text-center" id="contact">
           <h3>Social</h3>
@@ -319,7 +384,7 @@
       <div class="container text-center">
         <h6>copyright &copy; <a>Kdeveloppeur</a> 2023</h6>
       </div>
-    </footer>
+    </footer> -->
   </body>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
   <script
