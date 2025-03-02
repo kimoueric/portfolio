@@ -1,331 +1,411 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kimou.dev - Développeur Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'], // Police Inter pour une meilleure lisibilité
+      },
+      colors: {
+        dark: {
+          primary: '#111827', // Fond principal (gris très foncé)
+          secondary: '#1F2937', // Fond secondaire (gris foncé)
+          text: '#F9FAFB', // Texte principal (blanc légèrement grisé)
+          muted: '#9CA3AF', // Texte secondaire (gris clair)
+          accent: '#60A5FA', // Couleur d'accent (bleu pastel)
+          accent2: '#34D399', // Couleur d'accent secondaire (vert pastel)
+          highlight: '#93C5FD', // Couleur de surbrillance (bleu clair)
+          border: '#374151', // Bordure (gris moyen)
+        },
+        light: {
+          primary: '#FFFFFF', // Fond principal (blanc pur)
+          secondary: '#F9FAFB', // Fond secondaire (blanc légèrement grisé)
+          text: '#1F2937', // Texte principal (gris très foncé)
+          muted: '#4B5563', // Texte secondaire (gris moyen)
+          accent: '#3B82F6', // Couleur d'accent (bleu vif)
+          accent2: '#10B981', // Couleur d'accent secondaire (vert émeraude)
+          highlight: '#60A5FA', // Couleur de surbrillance (bleu clair)
+          border: '#E5E7EB', // Bordure (gris clair)
+        },
+      },
+      boxShadow: {
+        'dark': '0 4px 6px rgba(0, 0, 0, 0.3)', // Ombre pour le mode dark
+        'light': '0 4px 6px rgba(0, 0, 0, 0.1)', // Ombre pour le mode light
+        'dark-inner': 'inset 0 2px 4px rgba(0, 0, 0, 0.3)', // Ombre intérieure pour le mode dark
+        'light-inner': 'inset 0 2px 4px rgba(0, 0, 0, 0.06)', // Ombre intérieure pour le mode light
+      },
+      screens: {
+        '3xl': '1537px', // Point de rupture pour les très grands écrans
+      },
+    },
+  },
+};
+  </script>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    /* Styles communs */
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Acceuil</title>
-  </head>
-  <body>
-    <header class="container p-sm-0">
-      <nav class="navbar navbar-expand-lg p-lg-3">
-        <div class="container-fluid">
-          <a class="navbar-brand fs-3 logo" href="#"> <\Kdev> </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse navItem d-lg-flex justify-content-end"
-            id="navbarTogglerDemo02"
-          >
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <li class="nav-item mx-lg-5">
-                <a class="nav-link activeNavItem" href="#">Acceuil</a>
-              </li>
-              <li class="nav-item mx-lg-5">
-                <a class="nav-link" href="#about">A propos de moi</a>
-              </li>
-              <!-- supression -->
-              <!-- <li class="nav-item mx-lg-5">
-                <a class="nav-link" href="#projects">Projets</a>
-              </li> -->
-              <li class="nav-item mx-lg-5">
-                <a class="nav-link" href="#contact">Contact</a>
-              </li>
-            </ul>
+  </style>
+</head>
+<body class="h-screen p-3 transition-colors duration-300 bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text">
+  <div class="border border-light-border dark:border-dark-border h-full bg-light-secondary dark:bg-dark-secondary rounded-xl shadow-light dark:shadow-dark p-5 flex flex-col justify-between relative">
+    <!-- Header -->
+    <header class="h-[10%] p-4 mb-5">
+      <div class="flex  items-center justify-between space-y-4 md:space-y-0">
+        <!-- Logo -->
+        <h5 class=" font-bold bg-gradient-to-r from-light-accent to-light-accent2 dark:from-dark-accent dark:to-dark-accent2 bg-clip-text text-transparent flex items-center">
+          Kimou.dev
+        </h5>
+    
+        <!-- Navigation -->
+        <nav class="w-full md:w-auto flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 md:space-x-4 p-2 bg-light-primary dark:bg-dark-primary shadow-light-inner dark:shadow-dark-inner rounded-2xl hidden md:block">
+          <button id="menu-accueil" class="px-3 py-1 rounded-lg transition-colors active text-slate-500">Accueil</button>
+          <button id="menu-competences" class="px-3 py-1 rounded-lg transition-colors text-slate-500">Compétences</button>
+          <button id="menu-projets" class="px-3 py-1 rounded-lg transition-colors text-slate-500">Projets</button>
+          <button id="menu-a-propos" class="px-3 py-1 rounded-lg transition-colors text-slate-500">À propos</button>
+        </nav>
+    
+        <!-- Icônes et bouton de thème -->
+        <div class="flex items-center space-x-4 ">
+          <!-- Bouton de thème -->
+          <div class="theme-toggle" id="theme-toggle">
+            <span class="moon-icon">🌙</span>
+            <span class="sun-icon">☀️</span>
           </div>
-        </div>
-      </nav>
-    </header>
-    <main class="container p-sm-0">
-      <!-- ma description -->
-
-      <div class="container p-lg-4 mydescription">
-        <div class="row">
-          <div
-            class="col-sm-12 col-lg-6 ps-lg-5 py-lg-5 d-lg-flex align-items-start flex-column justify-content-center"
-          >
-            <h1>Kimou N'cho Guy-Eric</h1>
-            <div class="form-text fs-6">
-              Développeur d'Applications Web PHP/ReactJS
-            </div>
-
-            <a href="" class="text-decoration-none btn my-3 btnCv"
-              >Téléchargez mon CV
+    
+          <!-- Icônes sociales -->
+          <div class="flex items-center space-x-4">
+            <a href="#" aria-label="Facebook" class=" hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+              <i class="fi fi-brands-facebook text-xl text-slate-500"></i>
+            </a>
+            <a href="#" aria-label="GitHub" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+              <i class="fi fi-brands-github text-xl text-slate-500"></i>
+            </a>
+            <a href="#" aria-label="Google" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+              <i class="fi fi-brands-google text-xl text-slate-500"></i>
+            </a>
+            <a href="#" aria-label="Twitter" class="hover:text-light-accent dark:hover:text-dark-accent transition-colors">
+              <i class="fi fi-brands-twitter-alt text-xl text-slate-500"></i>
             </a>
           </div>
-          <div
-            class="col-sm-12 col-lg-6 d-none d-md-flex d-lg-flex justify-content-center p-lg-3 rounded-3"
-          >
-            <img
-              src="./assets/images/IMG_5466.JPG"
-              class="rounded-3 img-fluid"
-              alt="Image"
-              id="monImage"
-            />
-          </div>
         </div>
       </div>
+    </header>
 
-      <!-- Competences -->
+    <!-- Main Content -->
+    <main class="h-[90%] flex justify-center ">
+      <div class="swiper ">
+        <div class="swiper-wrapper">
 
-      <div class="container-fluid p-lg-4 my-3">
-        <div class="row">
-          <div class="col-sm-12 col-lg-4">
-            <div
-              class="container d-lg-flex justify-content-center flex-column align-items-center my-3"
-            >
-              <h1>2+</h1>
-              <div>
-                <h5>Connaissances</h5>
+          <div class="swiper-slide overflow-y-auto ">
+            <!-- Slide 1 - Accueil -->
+            <section class="flex flex-col md:flex-row justify-between items-center  bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary p-8 md:p-12 lg:p-16 rounded-lg shadow-lg  ">
+              <!-- Texte et bouton -->
+              <div class="w-full md:w-[60%] flex flex-col items-start space-y-6 relative z-10">
+                <h2 class="text-[24px] md:text-[42px] xl:text-[56px] font-bold bg-gradient-to-r from-light-accent to-dark-accent dark:from-dark-accent dark:to-light-accent bg-clip-text text-transparent animate__animated animate__fadeInLeft">
+                  Créer des solutions web 🌐 <span class="text-light-accent dark:text-dark-accent">innovantes</span> 💡
+                </h2>
+                <p class="text-[15px] text-justify md:text-[22px] xl:text-[26px] text-light-muted dark:text-dark-muted animate__animated animate__fadeInLeft delay-100">
+                  Je suis <span class="font-semibold text-light-accent dark:text-dark-accent">Kimou N'cho Guy-Eric</span>, développeur passionné spécialisé en <span class="font-semibold text-blue-600 dark:text-blue-400">Next.js</span>, <span class="font-semibold text-green-600 dark:text-green-400">Spring</span>, et <span class="font-semibold text-red-600 dark:text-red-400">Apache Airflow</span>. J'orchestre des workflows de données complexes pour des solutions robustes et évolutives.
+                </p>
+                <p class="text-[15px] text-justify md:text-[22px] xl:text-[26px] text-light-muted dark:text-dark-muted animate__animated animate__fadeInLeft delay-200">
+                  Mon objectif est de transformer vos idées en réalité grâce à des technologies de pointe, tout en garantissant une expérience utilisateur fluide et intuitive.
+                </p>
+                <div class="btn-container mt-6">
+                  <button class="bg-light-accent dark:bg-dark-accent text-white px-8 py-3 rounded-lg hover:bg-light-accent2 dark:hover:bg-dark-accent2 transition-colors shadow-md animate__animated animate__fadeInUp delay-300">
+                    Télécharger mon CV
+                  </button>
+                </div>
               </div>
-            </div>
+          
+              <!-- Image avec effet de flottement -->
+              <div class="w-full md:w-[35%] mt-8 md:mt-0 animate__animated animate__fadeInRight relative">
+                <img src="./assets/images/airflow.png" alt="Apache Airflow" class="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300" loading="lazy" />
+                <!-- Effet de fond animé -->
+                <div class="absolute inset-0 bg-gradient-to-r from-light-accent/10 to-dark-accent/10 dark:from-dark-accent/10 dark:to-light-accent/10 rounded-lg animate-pulse"></div>
+              </div>
+          
+              <!-- Icônes animées -->
+              <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 hidden md:block">
+                <div class="absolute top-20 left-10 animate-float">
+                  <img src="./assets/icons/nextjs.svg" alt="Next.js" class="w-12 h-12" />
+                </div>
+                <div class="absolute top-40 right-20 animate-float delay-500">
+                  <img src="./assets/icons/airflow.png" alt="Apache Airflow" class="w-12 h-12" />
+                </div>
+                <div class="absolute bottom-20 left-1/2 animate-float delay-1000">
+                  <img src="./assets/icons/spring-boot.svg" alt="Spring" class="w-12 h-12" />
+                </div>
+              </div>
+          
+              <!-- Animation de fond -->
+              <div class="absolute inset-0 z-0 opacity-30">
+                <div class="w-full h-full bg-gradient-to-r from-light-accent/20 to-dark-accent/20 dark:from-dark-accent/20 dark:to-light-accent/20 md:animate-moveBackground"></div>
+              </div>
+          
+              <!-- Effet de lumière qui suit la souris -->
+              <div class="absolute inset-0 z-0 overflow-hidden">
+                <div class="absolute w-48 h-48 bg-light-accent/20 dark:bg-dark-accent/20 rounded-full blur-2xl animate-mouseLight"></div>
+              </div>
+            </section>
           </div>
 
-          <div class="col-sm-12 col-lg-8">
-            <div class="container my-3">
-              <h2 class="text-center">
-                Langages de Programmation, Frameworks et Systèmes de Gestion de
-                Bases de Données (SGBD)
+          <div class="swiper-slide overflow-y-auto">
+            <section class="flex flex-col md:flex-row justify-between items-center swiper-slide bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary p-8 md:p-12 lg:p-16 rounded-lg shadow-lg ">
+              <!-- Texte et bouton -->
+              <div class="w-full md:w-[60%] flex flex-col items-start space-y-6 relative z-10">
+                <h2 class="text-[24px] md:text-[42px] xl:text-[56px] font-bold bg-gradient-to-r from-light-accent to-dark-accent dark:from-dark-accent dark:to-light-accent bg-clip-text text-transparent animate__animated animate__fadeInLeft">
+                  Mes Compétences
+                </h2>
+                <p class="text-[15px] text-justify md:text-[22px] xl:text-[26px] text-light-muted dark:text-dark-muted animate__animated animate__fadeInLeft delay-100">
+                  Je maîtrise des technologies modernes comme <span class="font-semibold text-light-accent dark:text-dark-accent">React</span>, <span class="font-semibold text-light-accent2 dark:text-dark-accent2">Spring</span>, et j'ai des bases solides en <span class="font-semibold text-indigo-500 dark:text-indigo-400">Docker</span> et <span class="font-semibold text-red-500 dark:text-red-400">Apache Airflow</span>.
+                </p>
+                <p class="text-[15px] text-justify md:text-[22px] xl:text-[26px] text-light-muted dark:text-dark-muted animate__animated animate__fadeInLeft delay-200">
+                  Mon expertise couvre le développement fullstack, l'automatisation des workflows de données et la création d'applications web performantes et évolutives.
+                </p>
+                <div class="btn-container mt-6">
+                  <button class="bg-light-accent dark:bg-dark-accent text-white px-8 py-3 rounded-lg hover:bg-light-accent2 dark:hover:bg-dark-accent2 transition-colors shadow-md animate__animated animate__fadeInUp delay-300">
+                    Explorer mes projets
+                  </button>
+                </div>
+              </div>
+          
+              <!-- Icônes des compétences avec effet de flottement -->
+              <div class="w-full md:w-[35%] grid grid-cols-2 gap-6 mt-8 md:mt-0 animate__animated animate__fadeInRight">
+                <div class="flex flex-col items-center p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 skill-icon animate-float">
+                  <img src="./assets/icons/react.svg" alt="React" class="w-16 h-16 md:w-20 md:h-20" loading="lazy" />
+                  <p class="mt-4 text-lg font-semibold text-light-text dark:text-dark-text">React</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 skill-icon animate-float delay-500">
+                  <img src="./assets/icons/spring-boot.svg" alt="Spring" class="w-16 h-16 md:w-20 md:h-20" loading="lazy" />
+                  <p class="mt-4 text-lg font-semibold text-light-text dark:text-dark-text">Spring</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 skill-icon animate-float delay-1000">
+                  <img src="./assets/icons/docker.svg" alt="Docker" class="w-16 h-16 md:w-20 md:h-20" loading="lazy" />
+                  <p class="mt-4 text-lg font-semibold text-light-text dark:text-dark-text">Docker</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 skill-icon animate-float delay-1500">
+                  <img src="./assets/icons/airflow.png" alt="Apache Airflow" class="w-16 h-16 md:w-20 md:h-20" loading="lazy" />
+                  <p class="mt-4 text-lg font-semibold text-light-text dark:text-dark-text">Airflow</p>
+                </div>
+              </div>
+          
+              <!-- Animation de fond -->
+              <div class="absolute inset-0 z-0 opacity-30">
+                <div class="w-full h-full bg-gradient-to-r from-light-accent/20 to-dark-accent/20 dark:from-dark-accent/20 dark:to-light-accent/20 md:animate-moveBackground"></div>
+              </div>
+          
+              <!-- Effet de lumière qui suit la souris -->
+              <div class="absolute inset-0 z-0 overflow-hidden">
+                <div class="absolute w-48 h-48 bg-light-accent/20 dark:bg-dark-accent/20 rounded-full blur-2xl animate-mouseLight"></div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Slide 3 - Projets -->
+          <div class="swiper-slide overflow-y-auto">
+            <section class="flex flex-col justify-center items-center bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary p-8 md:p-12 lg:p-16 rounded-lg shadow-lg relative overflow-hidden">
+              <!-- Titre de la section -->
+              <h2 class="text-[25px] md:text-[42px] xl:text-[56px] font-bold bg-gradient-to-r from-light-accent to-dark-accent dark:from-dark-accent dark:to-light-accent bg-clip-text text-transparent text-center animate__animated animate__fadeInDown">
+                 Projets
               </h2>
-              <div class="row">
-                <div class="col col-lg-12 col-sm-12">
-                  <div
-                    class="container d-flex text-center justify-content-center rounded-2 p-5 my-3 box"
-                  >
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/317755_badge_html_html5_achievement_award_icon.png"
-                        alt=""
-                      />
-                      <h6>Html</h6>
-                    </div>
-
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/317756_badge_css_css3_achievement_award_icon.png"
-                        alt=""
-                      />
-                      <h6>Css</h6>
-                    </div>
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/4373213_js_logo_logos_icon.png"
-                        alt=""
-                      />
-                      <h6>Javascript</h6>
-                    </div>
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/1012812_code_development_logo_php_icon.png"
-                        alt=""
-                      />
-                      <h6>Php</h6>
-                    </div>
+          
+              <!-- Conteneur des cartes -->
+              <div class="w-full mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Carte 1 : RTSIS -->
+                <div class="flex flex-col p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 animate__animated animate__fadeInLeft">
+                  <!-- Image du projet -->
+                  <div class="w-full h-48 mb-4 overflow-hidden rounded-lg relative">
+                    <img src="./assets/images/rtsis.jpg" alt="RTSIS" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  </div>
+                  <h3 class="text-[18px] md:text-[28px] font-semibold text-light-text dark:text-dark-text">
+                    RTSIS (Real-time System Information Supervision)
+                  </h3>
+                  <p class="mt-4 text-[15px] text-justify md:text-[18px] text-light-muted dark:text-dark-muted">
+                    J'ai travaillé sur la partie ETL avec <span class="font-semibold text-red-600 dark:text-red-400">Apache Airflow</span>. Ce projet consistait à mettre en place un système permettant d'envoyer des données en temps réel à une banque. Mon rôle était de concevoir et d'automatiser les workflows de données pour garantir une transmission fluide et sécurisée.
+                  </p>
+                  <div class="mt-6">
+                    <button class="bg-light-accent dark:bg-dark-accent text-white px-6 py-2 rounded-md hover:bg-light-accent2 dark:hover:bg-dark-accent2 transition-colors">
+                      En savoir plus
+                    </button>
                   </div>
                 </div>
-
-                <div class="col col-lg-12 col-sm-12">
-                  <div
-                    class="container d-flex text-center justify-content-center align-items-center rounded-2 p-5 my-3 box"
-                  >
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/8666135_bootstrap_icon.png"
-                        alt=""
-                      />
-                      <h6>Bootstrap</h6>
-                    </div>
-
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/4691300_jquery_icon.png"
-                        alt=""
-                      />
-                      <h6>Jquery</h6>
-                    </div>
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/9035101_logo_nodejs_icon.png"
-                        alt=""
-                      />
-                      <h6>NodeJs</h6>
-                    </div>
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/8546793_laravel_icon.png"
-                        alt=""
-                      />
-                      <h6>Laravel</h6>
-                    </div>
+          
+                <!-- Carte 2 : GDI -->
+                <div class="flex flex-col p-6 bg-white dark:bg-dark-secondary rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105 animate__animated animate__fadeInRight">
+                  <!-- Image du projet -->
+                  <div class="w-full h-48 mb-4 overflow-hidden rounded-lg relative">
+                    <img src="./assets/images/gdi.jpg" alt="GDI" class="w-full h-full object-cover" loading="lazy" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   </div>
-                </div>
-
-                <div class="col col-lg-12 col-sm-12">
-                  <div
-                    class="container d-flex box justify-content-center rounded-2 p-5 my-3"
-                  >
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/1012821_code_development_logo_mysql_icon.png"
-                        alt=""
-                      />
-                      <h6>Mysql</h6>
-                    </div>
-
-                    <div class="container my-3">
-                      <img
-                        src="./assets/icons/1012822_code_development_logo_mongodb_programming_icon (1).png"
-                        alt=""
-                      />
-                      <h6>MongoDB</h6>
-                    </div>
+                  <h3 class="text-[18px] md:text-[28px] font-semibold text-light-text dark:text-dark-text">
+                    GDI
+                  </h3>
+                  <p class="mt-4 text-[15px] text-justify md:text-[18px] text-light-muted dark:text-dark-muted">
+                    J'ai travaillé en tant que développeur fullstack avec <span class="font-semibold text-blue-600 dark:text-blue-400">Next.js</span> et <span class="font-semibold text-green-600 dark:text-green-400">Spring</span>. J'ai également géré la partie ETL pour ce projet, qui visait à envoyer des informations à une banque centrale. Mon rôle incluait le développement de l'interface utilisateur, la création d'API robustes et l'automatisation des processus de données.
+                  </p>
+                  <div class="mt-6">
+                    <button class="bg-light-accent dark:bg-dark-accent text-white px-6 py-2 rounded-md hover:bg-light-accent2 dark:hover:bg-dark-accent2 transition-colors">
+                      En savoir plus
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
+          
+              <!-- Animation de fond -->
+              <div class="absolute inset-0 z-0 opacity-30">
+                <div class="w-full h-full bg-gradient-to-r from-light-accent/20 to-dark-accent/20 dark:from-dark-accent/20 dark:to-light-accent/20 md:animate-moveBackground"></div>
+              </div>
+          
+              <!-- Effet de lumière qui suit la souris -->
+              <div class="absolute inset-0 z-0 overflow-hidden">
+                <div class="absolute w-48 h-48 bg-light-accent/20 dark:bg-dark-accent/20 rounded-full blur-2xl animate-mouseLight"></div>
+              </div>
+            </section>
+          </div>
+          <!-- Slide 4 - À propos -->
+
+          <div class="swiper-slide overflow-y-auto">
+            <section class="flex flex-col md:flex-row justify-between items-center swiper-slide bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary p-8 md:p-12 lg:p-16 rounded-lg shadow-lg ">
+              <!-- Texte et bouton -->
+              <div class="w-full md:w-[60%] flex flex-col items-start space-y-6 relative z-10">
+                <h2 class="text-[25px] md:text-[42px] xl:text-[56px] font-bold bg-gradient-to-r from-light-accent to-dark-accent dark:from-dark-accent dark:to-light-accent bg-clip-text text-transparent animate__animated animate__fadeInLeft">
+                  À propos de moi
+                </h2>
+                <p class="text-[15px] md:text-[22px] text-justify xl:text-[26px] text-light-muted dark:text-dark-muted animate__animated animate__fadeInLeft delay-100">
+                  Je suis <span class="font-semibold text-light-accent dark:text-dark-accent">Kimou N'cho Guy-Eric</span>, un développeur passionné spécialisé dans la création d'applications web modernes avec <span class="font-semibold text-blue-600 dark:text-blue-400">Next.js</span> et <span class="font-semibold text-green-600 dark:text-green-400">Spring</span>. J'orchestre également des workflows de données complexes avec <span class="font-semibold text-red-600 dark:text-red-400">Apache Airflow</span> pour des solutions robustes et évolutives.
+                </p>
+                <p class="text-[15px] md:text-[22px] text-justify xl:text-[26px] text-light-muted dark:text-dark-muted animate__animated animate__fadeInLeft delay-200">
+                  Mon objectif est de transformer vos idées en réalité grâce à des technologies de pointe, tout en garantissant une expérience utilisateur fluide et intuitive. Que ce soit pour un projet web, une API robuste ou une automatisation de données, je mets mon expertise à votre service.
+                </p>
+                <div class="btn-container mt-6">
+                  <button class="bg-light-accent dark:bg-dark-accent text-white px-8 py-3 rounded-lg hover:bg-light-accent2 dark:hover:bg-dark-accent2 transition-colors shadow-md animate__animated animate__fadeInUp delay-300">
+                    En savoir plus
+                  </button>
+                </div>
+              </div>
+          
+              <!-- Image avec effet de flottement -->
+              <div class="w-full md:w-[35%] mt-8 md:mt-0 animate__animated animate__fadeInRight relative">
+                <img src="./assets/images/me.JPG" alt="Kimou N'cho Guy-Eric" class="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300" loading="lazy" />
+                <!-- Effet de fond animé -->
+                <div class="absolute inset-0 bg-gradient-to-r from-light-accent/10 to-dark-accent/10 dark:from-dark-accent/10 dark:to-light-accent/10 rounded-lg animate-pulse"></div>
+              </div>
+          
+              <!-- Animation de fond -->
+              <div class="absolute inset-0 z-0 opacity-30">
+                <div class="w-full h-full bg-gradient-to-r from-light-accent/20 to-dark-accent/20 dark:from-dark-accent/20 dark:to-light-accent/20 md:animate-moveBackground"></div>
+              </div>
+          
+              <!-- Effet de lumière qui suit la souris -->
+              <div class="absolute inset-0 z-0 overflow-hidden">
+                <div class="absolute w-48 h-48 bg-light-accent/20 dark:bg-dark-accent/20 rounded-full blur-2xl animate-mouseLight"></div>
+              </div>
+            </section>
           </div>
         </div>
+
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-prev text-light-accent dark:text-dark-accent"></div>
+        <div class="swiper-button-next text-light-accent dark:text-dark-accent"></div>
       </div>
-      <!-- Ma description -->
-
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-lg-6 d-none d-md-flex d-lg-flex">
-            <img
-              src="./assets/images/IMG_20211205_005614.jpg"
-              class="img-fluid rounded-3"
-              id="monImage2"
-              alt=""
-            />
-          </div>
-          <div
-            class="col d-flex align-items-start flex-column justify-content-center"
-          >
-            <div class="text-center d-flex justify-content-center my-4">
-              <h1>Qui suis-je ?</h1>
-            </div>
-            <div class="form-text fs-3" id="about">
-              Je suis Kimou N'cho Guy-Eric, passionné du développement web
-              depuis maintenant une année. Je mets à votre disposition des
-              applications web conçues sur mesure en fonction de vos besoins,
-              tout cela grâce à des technologies web de pointe, dans le but de
-              vous offrir une expérience incroyable à chaque visite. Dans ce
-              monde en perpétuelle évolution, je compte m'améliorer au fil du
-              temps pour toujours maintenir le cap et donner le meilleur de
-              moi-même.
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Mes projets -->
-
-      <!-- <div class="container-fluid p-lg-4 my-3">
-        <div class="row" id="projects">
-          <div class="col-sm-12 col-lg-4">
-            <div
-              class="container d-lg-flex justify-content-center flex-column align-items-center my-3"
-            >
-              <h1>3+</h1>
-              <div>
-                <h5>Expériences</h5>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-lg-8">
-            <h2 class="text-center">Projets personnel</h2>
-            <div class="carrousel">
-              <div class="slide" id="slide1">
-                <div class="title text-light">
-                  <h6 class="my-3">Générateur de mot de passe</h6>
-                </div>
-              </div>
-
-              <div class="slide" id="slide2">
-                <div class="title text-light">
-                  <h6 class="my-3">Compte à rebours</h6>
-                </div>
-              </div>
-
-              <div class="pages">
-                <span class="p-2">1</span>
-                <span class="p-2">2</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </main>
-    <footer class="container p-sm-0">
-      <div class="container">
-        <div class="row text-center" id="contact">
-          <h3>Social</h3>
-          <div class="col p-5">
-            <img src="./assets/icons/211904_social_github_icon.png" alt="" />
 
-            <div class="form-text">
-              <a
-                href="https://github.com/kimoueric/ "
-                class="text-decoration-none text-dark"
-                >kimoueric</a
-              >
-            </div>
-          </div>
-
-          <div class="col p-5">
-            <img src="./assets/icons/317750_linkedin_icon.png" alt="" />
-
-            <div class="form-text">kimou n'cho guy-eric</div>
-          </div>
-
-          <div class="col p-5">
-            <img
-              src="./assets/icons/5296499_fb_facebook_facebook logo_icon.png"
-              alt=""
-            />
-            <div class="form-text text-dark">kimou n'cho guy-eric</div>
-          </div>
-
-          <div class="col p-5">
-            <img
-              src="./assets/icons/5296514_bird_tweet_twitter_twitter logo_icon.png"
-              alt=""
-            />
-            <div class="form-text text-dark">eric_kimou</div>
-          </div>
-
-          <div class="col p-5">
-            <img src="./assets/icons/7089163_gmail_google_icon.png" alt="" />
-            <div class="form-text text-dark">kimoueric04@gmail.com</div>
-          </div>
-        </div>
-      </div>
-      <div class="container text-center">
-        <h6>copyright &copy; <a>Kdeveloppeur</a> 2023</h6>
-      </div>
+    <!-- Footer -->
+    <footer class="h-[10%] flex items-center justify-center">
+      <h6 class="text-light-muted dark:text-dark-muted">copyright &copy; <a class="text-light-accent dark:text-dark-accent hover:underline">kimou</a> 2024</h6>
     </footer>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"
-  ></script>
-  <script src="./assets/js/app.js"></script>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // Fonction pour définir le thème
+    function setTheme(theme) {
+      const html = document.documentElement;
+      
+      if (theme === 'dark') {
+        html.classList.add('dark');
+        html.classList.remove('light');
+      } else {
+        html.classList.add('light');
+        html.classList.remove('dark');
+      }
+      
+      // Enregistrer la préférence
+      localStorage.setItem('theme', theme);
+    }
+    
+    // Fonction pour basculer entre dark et light mode
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    }
+    
+    // Initialiser le thème
+    document.addEventListener('DOMContentLoaded', () => {
+      // Vérifier d'abord si l'utilisateur a déjà une préférence
+      const savedTheme = localStorage.getItem('theme');
+      
+      if (savedTheme) {
+        // Utiliser la préférence sauvegardée
+        setTheme(savedTheme);
+      } else {
+        // Vérifier la préférence du système
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+        
+        // Écouter les changements de préférence système
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+          if (!localStorage.getItem('theme')) { // Ne pas écraser la préférence manuelle
+            setTheme(e.matches ? 'dark' : 'light');
+          }
+        });
+      }
+      
+      // Ajouter l'écouteur d'événement pour le bouton de bascule
+      document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
+    });
+    
+    // Configuration de Swiper
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        slideChange: function () {
+          const activeIndex = this.realIndex;
+          const menuItems = document.querySelectorAll('nav button');
+          
+          menuItems.forEach((item) => item.classList.remove('active'));
+          menuItems[activeIndex].classList.add('active');
+        },
+      },
+    });
+
+    // Lier les boutons du menu à Swiper
+    const menuItems = document.querySelectorAll('nav button');
+    menuItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        swiper.slideTo(index);
+      });
+    });
+  </script>
+</body>
 </html>
