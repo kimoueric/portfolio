@@ -5,7 +5,7 @@
   color: white;
 }
 .text-container {
-  background-color: #0B0B0B; /* Une couleur de fond sombre */
+  /* background-color: #0B0B0B; Une couleur de fond sombre */
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -82,31 +82,7 @@ h3 {
   right: 12px;
 }
 
-/* span {
-  background-color: whitesmoke;
-  color: #6a0572;
-  font-weight: 100;
-  padding: 5px;
-  margin: 0 2px;
 
-  border-radius: 2px;
-}
-span:hover {
-  background-color: #6a0572;
-  color: whitesmoke;
-  cursor: pointer;
-} */
-.title {
-  background-color: #6a0572;
-  position: absolute;
-  bottom: 0px;
-  padding: 5px;
-  width: 100%;
-}
-.active {
-  background-color: #6a0572;
-  color: whitesmoke;
-}
 .activeSlide {
 }
 #slide1 {
@@ -146,4 +122,428 @@ span:hover {
   .container.my-3 h6 {
     font-size: 8px;
   }
+}
+
+
+:root {
+  --transition-speed: 0.3s;
+}
+
+* {
+  transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+/* Toggle button styles */
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.skill-icon {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-icon:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.section-gradient {
+background: linear-gradient(135deg, #F9FAFB, #E5E7EB);
+}
+
+.dark .section-gradient {
+background: linear-gradient(135deg, #111827, #1F2937);
+}
+
+.btn-gradient {
+background: linear-gradient(45deg, #3B82F6, #10B981);
+color: white;
+border: none;
+transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+background: linear-gradient(45deg, #10B981, #3B82F6);
+}
+
+.card {
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark .card {
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark .card:hover {
+box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 2;
+}
+
+/* Light mode appearance */
+.light .theme-toggle {
+  background-color: #0EA5E9;
+}
+
+/* Dark mode appearance */
+.dark .theme-toggle {
+  background-color: #121212;
+}
+
+.dark .theme-toggle::before {
+  transform: translateX(30px);
+  background-color: #121212;
+  box-shadow: inset -3px -2px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Icons for sun and moon */
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.theme-toggle .sun-icon {
+  right: 7px;
+  opacity: 0;
+  color: white;
+}
+
+.theme-toggle .moon-icon {
+  left: 7px;
+  opacity: 0;
+  color: #FFD700;
+}
+
+.light .theme-toggle .sun-icon {
+  opacity: 1;
+}
+
+.dark .theme-toggle .moon-icon {
+  opacity: 1;
+}
+
+/* Active menu item */
+nav button.active {
+  position: relative;
+  font-weight: 600;
+}
+
+.dark nav button.active {
+color: #60A5FA; /* Bleu pastel pour le dark mode */
+}
+
+.light nav button.active {
+color: #3B82F6; /* Bleu vif pour le light mode */
+}
+
+nav button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.dark nav button.active::after {
+background-color: #60A5FA;
+}
+
+.light nav button.active::after {
+background-color: #3B82F6;
+}
+
+/* Custom highlight color for text selection */
+::selection {
+background-color: rgba(59, 130, 246, 0.3); /* Bleu vif pour le light mode */
+}
+
+.dark ::selection {
+background-color: rgba(96, 165, 250, 0.3); /* Bleu pastel pour le dark mode */
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+::-webkit-scrollbar-track {
+background: #E5E7EB; /* Gris clair pour le light mode */
+}
+
+.dark ::-webkit-scrollbar-track {
+background: #374151; /* Gris moyen pour le dark mode */
+}
+
+::-webkit-scrollbar-thumb {
+background: #3B82F6; /* Bleu vif pour le light mode */
+border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+background: #60A5FA; /* Bleu pastel pour le dark mode */
+}
+
+
+.glass-effect {
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 12px;
+}
+
+.dark .glass-effect {
+background: rgba(17, 24, 39, 0.5);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animation de flottement */
+@keyframes float {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-20px);
+}
+}
+
+.animate-float {
+animation: float 4s infinite ease-in-out;
+}
+
+.delay-500 {
+animation-delay: 0.5s;
+}
+
+.delay-1000 {
+animation-delay: 1s;
+}
+
+/* Animation de fond */
+@keyframes moveBackground {
+0% {
+transform: translateX(-10%) translateY(-10%);
+}
+100% {
+transform: translateX(10%) translateY(10%);
+}
+}
+
+.animate-moveBackground {
+animation: moveBackground 20s infinite alternate ease-in-out;
+}
+
+/* Effet de lumière qui suit la souris */
+@keyframes mouseLight {
+0%, 100% {
+transform: translate(-50%, -50%);
+}
+25% {
+transform: translate(50%, -50%);
+}
+50% {
+transform: translate(50%, 50%);
+}
+75% {
+transform: translate(-50%, 50%);
+}
+}
+
+.animate-mouseLight {
+animation: mouseLight 5s infinite ease-in-out;
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+0% {
+opacity: 0.3;
+}
+50% {
+opacity: 0.6;
+}
+100% {
+opacity: 0.3;
+}
+}
+
+.animate-pulse {
+animation: pulse 3s infinite ease-in-out;
+}
+
+
+/* Animation de flottement */
+@keyframes float {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-10px);
+}
+}
+
+.animate-float {
+animation: float 4s infinite ease-in-out;
+}
+
+.delay-500 {
+animation-delay: 0.5s;
+}
+
+.delay-1000 {
+animation-delay: 1s;
+}
+
+.delay-1500 {
+animation-delay: 1.5s;
+}
+
+/* Animation de fond */
+@keyframes moveBackground {
+0% {
+transform: translateX(-10%) translateY(-10%);
+}
+100% {
+transform: translateX(10%) translateY(10%);
+}
+}
+
+.animate-moveBackground {
+animation: moveBackground 20s infinite alternate ease-in-out;
+}
+
+/* Effet de lumière qui suit la souris */
+@keyframes mouseLight {
+0%, 100% {
+transform: translate(-50%, -50%);
+}
+25% {
+transform: translate(50%, -50%);
+}
+50% {
+transform: translate(50%, 50%);
+}
+75% {
+transform: translate(-50%, 50%);
+}
+}
+
+.animate-mouseLight {
+animation: mouseLight 5s infinite ease-in-out;
+}
+
+/* Animation de fond */
+@keyframes moveBackground {
+0% {
+transform: translateX(-10%) translateY(-10%);
+}
+100% {
+transform: translateX(10%) translateY(10%);
+}
+}
+
+.animate-moveBackground {
+animation: moveBackground 20s infinite alternate ease-in-out;
+}
+
+/* Effet de lumière qui suit la souris */
+@keyframes mouseLight {
+0%, 100% {
+transform: translate(-50%, -50%);
+}
+25% {
+transform: translate(50%, -50%);
+}
+50% {
+transform: translate(50%, 50%);
+}
+75% {
+transform: translate(-50%, 50%);
+}
+}
+
+.animate-mouseLight {
+animation: mouseLight 5s infinite ease-in-out;
+}
+
+/* Animation de fond */
+@keyframes moveBackground {
+0% {
+transform: translateX(-10%) translateY(-10%);
+}
+100% {
+transform: translateX(10%) translateY(10%);
+}
+}
+
+.animate-moveBackground {
+animation: moveBackground 20s infinite alternate ease-in-out;
+}
+
+/* Effet de lumière qui suit la souris */
+@keyframes mouseLight {
+0%, 100% {
+transform: translate(-50%, -50%);
+}
+25% {
+transform: translate(50%, -50%);
+}
+50% {
+transform: translate(50%, 50%);
+}
+75% {
+transform: translate(-50%, 50%);
+}
+}
+
+.animate-mouseLight {
+animation: mouseLight 5s infinite ease-in-out;
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+0% {
+opacity: 0.3;
+}
+50% {
+opacity: 0.6;
+}
+100% {
+opacity: 0.3;
+}
+}
+
+.animate-pulse {
+animation: pulse 3s infinite ease-in-out;
 }
