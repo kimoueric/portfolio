@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kimou.dev - Développeur Web Full Stack</title>
+  <meta name="description"
+    content="Portfolio de Kimou N'cho Guy-Eric - Développeur Full Stack spécialisé en Next.js, Spring et Apache Airflow" />
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            accent: {
+              DEFAULT: '#ffffff',
+              light: '#f8f9fa',
+              dark: '#e9ecef',
+            },
+            dark: {
+              50: '#f8f9fa',
+              100: '#e9ecef',
+              200: '#dee2e6',
+              300: '#ced4da',
+              400: '#adb5bd',
+              500: '#6c757d',
+              600: '#495057',
+              700: '#343a40',
+              800: '#212529',
+              900: '#0a0a0a',
+            }
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Lenis CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css" />
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css" />
+</head>
+
+<body class="bg-dark-900 text-white overflow-x-hidden antialiased">
+
+  <!-- Cursor follower -->
+  <div id="cursor-follower"
+    class="fixed w-8 h-8 rounded-full border-2 border-white pointer-events-none z-50 mix-blend-difference hidden lg:block">
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div
+        class="flex items-center justify-between backdrop-blur-xl bg-dark-800/50 rounded-2xl px-6 py-3 border border-dark-700/50">
+        <!-- Logo -->
+        <a href="#hero" class="text-2xl font-bold text-white hover:text-dark-200 transition-colors">
+          Kimou.dev
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#hero" class="nav-link text-dark-400 hover:text-white transition-colors">Accueil</a>
+          <a href="#about" class="nav-link text-dark-400 hover:text-white transition-colors">À propos</a>
+          <a href="#skills" class="nav-link text-dark-400 hover:text-white transition-colors">Compétences</a>
+          <a href="#projects" class="nav-link text-dark-400 hover:text-white transition-colors">Projets</a>
+          <a href="#contact" class="nav-link text-dark-400 hover:text-white transition-colors">Contact</a>
+        </div>
+
+
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg bg-dark-800/50 hover:bg-dark-700/50 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute w-96 h-96 bg-white/5 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
+      <div class="absolute w-96 h-96 bg-white/5 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse"
+        style="animation-delay: 1s;"></div>
+      <div
+        class="absolute w-96 h-96 bg-white/5 rounded-full blur-3xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse"
+        style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Grid Pattern -->
+    <div
+      class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center">
+        <div class="hero-content">
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6">
+            <span class="block text-slate-400 text-2xl md:text-3xl font-normal mb-4">Bonjour, je suis</span>
+            <span
+              class="bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue bg-clip-text text-transparent">
+              Kimou N'cho
+            </span>
+          </h1>
+
+          <p class="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-8 max-w-3xl mx-auto">
+            Développeur <span class="text-accent-blue font-semibold">Full Stack</span> passionné par la création
+            d'expériences web
+            <span class="text-accent-green font-semibold">innovantes</span> et <span
+              class="text-accent-purple font-semibold">performantes</span>
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+            <span
+              class="px-4 py-2 bg-dark-800/50 backdrop-blur-sm rounded-full border border-dark-700/50 text-sm text-dark-300">
+              Next.js
+            </span>
+            <span
+              class="px-4 py-2 bg-dark-800/50 backdrop-blur-sm rounded-full border border-dark-700/50 text-sm text-dark-300">
+              Spring Boot
+            </span>
+            <span
+              class="px-4 py-2 bg-dark-800/50 backdrop-blur-sm rounded-full border border-dark-700/50 text-sm text-dark-300">
+              Apache Airflow
+            </span>
+            <span
+              class="px-4 py-2 bg-dark-800/50 backdrop-blur-sm rounded-full border border-dark-700/50 text-sm text-dark-300">
+              React
+            </span>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="#projects"
+              class="group relative px-8 py-4 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full font-semibold overflow-hidden transition-all hover:scale-105">
+              <span class="relative z-10">Voir mes projets</span>
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-accent-pink to-accent-purple opacity-0 group-hover:opacity-100 transition-opacity">
+              </div>
+            </a>
+            <a href="#contact"
+              class="px-8 py-4 border-2 border-slate-700 rounded-full font-semibold hover:bg-slate-800/50 transition-all hover:scale-105">
+              Me contacter
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex items-center justify-center gap-6 mt-12">
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-accent-purple/20 border border-slate-700/50 hover:border-accent-purple transition-all hover:scale-110">
+              <i class="fi fi-brands-github text-xl"></i>
+            </a>
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-accent-blue/20 border border-slate-700/50 hover:border-accent-blue transition-all hover:scale-110">
+              <i class="fi fi-brands-twitter-alt text-xl"></i>
+            </a>
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-accent-pink/20 border border-slate-700/50 hover:border-accent-pink transition-all hover:scale-110">
+              <i class="fi fi-brands-google text-xl"></i>
+            </a>
+            <a href="#"
+              class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-accent-blue/20 border border-slate-700/50 hover:border-accent-blue transition-all hover:scale-110">
+              <i class="fi fi-brands-facebook text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div class="w-6 h-10 border-2 border-dark-600 rounded-full flex items-start justify-center p-2">
+        <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="about-image">
+          <div class="relative">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent-purple to-accent-pink rounded-3xl blur-2xl opacity-20">
+            </div>
+            <div class="relative bg-slate-900/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-800/50">
+              <img src="./assets/images/me.png" alt="Kimou N'cho Guy-Eric" class="w-full h-auto rounded-2xl" />
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">
+            <span class="bg-gradient-to-r from-accent-purple to-accent-pink bg-clip-text text-transparent">
+              À propos de moi
+            </span>
+          </h2>
+
+          <p class="text-lg text-slate-300 mb-6 leading-relaxed">
+            Je suis <span class="text-white font-semibold">Kimou N'cho Guy-Eric</span>, développeur Full Stack passionné
+            avec une expertise en développement web moderne et en orchestration de données.
+          </p>
+
+          <p class="text-lg text-slate-300 mb-6 leading-relaxed">
+            Spécialisé dans <span class="text-blue-400 font-semibold">Next.js</span>, <span
+              class="text-green-400 font-semibold">Spring Boot</span>, et <span
+              class="text-red-400 font-semibold">Apache Airflow</span>, je crée des solutions web robustes et évolutives
+            qui transforment les idées en réalité.
+          </p>
+
+          <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+            Mon objectif est de concevoir des applications performantes avec une expérience utilisateur exceptionnelle,
+            tout en garantissant la qualité et la maintenabilité du code.
+          </p>
+
+          <a href="#"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full font-semibold hover:scale-105 transition-transform">
+            <span>Télécharger mon CV</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-accent-purple to-accent-pink bg-clip-text text-transparent">
+            Mes Compétences
+          </span>
+        </h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+          Technologies et outils que je maîtrise pour créer des solutions innovantes
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Skill Card -->
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-blue-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <img src="./assets/icons/react.svg" alt="React" class="w-16 h-16 mx-auto mb-4" />
+              <h3 class="text-center font-semibold">React</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-blue-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <img src="./assets/icons/nextjs.svg" alt="Next.js" class="w-16 h-16 mx-auto mb-4" />
+              <h3 class="text-center font-semibold">Next.js</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-green-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <img src="./assets/icons/spring-boot.svg" alt="Spring Boot" class="w-16 h-16 mx-auto mb-4" />
+              <h3 class="text-center font-semibold">Spring Boot</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-red-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <img src="./assets/icons/airflow.png" alt="Apache Airflow" class="w-16 h-16 mx-auto mb-4" />
+              <h3 class="text-center font-semibold">Airflow</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-blue-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <img src="./assets/icons/docker.svg" alt="Docker" class="w-16 h-16 mx-auto mb-4" />
+              <h3 class="text-center font-semibold">Docker</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-purple-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl">⚡</div>
+              <h3 class="text-center font-semibold">TypeScript</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-yellow-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl">🔥</div>
+              <h3 class="text-center font-semibold">JavaScript</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-800/50 hover:border-orange-500/50 transition-all hover:scale-105">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+            <div class="relative">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-4xl">☕</div>
+              <h3 class="text-center font-semibold">Java</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-accent-purple to-accent-pink bg-clip-text text-transparent">
+            Mes Projets
+          </span>
+        </h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+          Découvrez mes réalisations et projets professionnels
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project Card 1 -->
+        <div class="project-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-3xl overflow-hidden border border-slate-800/50 hover:border-accent-purple/50 transition-all">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent-purple/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img src="./assets/images/rtsis.jpg" alt="RTSIS"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+            </div>
+
+            <div class="relative p-8">
+              <h3 class="text-2xl font-bold mb-3">RTSIS</h3>
+              <p class="text-sm text-accent-purple mb-4">Real-time System Information Supervision</p>
+              <p class="text-slate-300 mb-6">
+                Système ETL avec <span class="text-red-400 font-semibold">Apache Airflow</span> pour l'envoi de données
+                en temps réel vers une banque. Conception et automatisation des workflows de données.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="px-3 py-1 bg-red-500/10 border border-red-500/30 rounded-full text-sm text-red-400">Airflow</span>
+                <span
+                  class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-400">ETL</span>
+                <span
+                  class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-sm text-green-400">Real-time</span>
+              </div>
+
+              <a href="#"
+                class="inline-flex items-center gap-2 text-accent-purple hover:text-accent-pink transition-colors font-semibold">
+                <span>En savoir plus</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card group">
+          <div
+            class="relative bg-slate-900/50 backdrop-blur-xl rounded-3xl overflow-hidden border border-slate-800/50 hover:border-accent-blue/50 transition-all">
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-accent-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+            </div>
+
+            <div class="relative h-64 overflow-hidden">
+              <img src="./assets/images/gdi.jpg" alt="GDI"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+            </div>
+
+            <div class="relative p-8">
+              <h3 class="text-2xl font-bold mb-3">GDI</h3>
+              <p class="text-sm text-accent-blue mb-4">Gestion de Données Interbancaires</p>
+              <p class="text-slate-300 mb-6">
+                Développement fullstack avec <span class="text-blue-400 font-semibold">Next.js</span> et <span
+                  class="text-green-400 font-semibold">Spring Boot</span>. Gestion ETL pour l'envoi d'informations à une
+                banque centrale.
+              </p>
+
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-400">Next.js</span>
+                <span
+                  class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-sm text-green-400">Spring</span>
+                <span
+                  class="px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-sm text-purple-400">Full
+                  Stack</span>
+              </div>
+
+              <a href="#"
+                class="inline-flex items-center gap-2 text-accent-blue hover:text-accent-green transition-colors font-semibold">
+                <span>En savoir plus</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 relative z-10 w-full">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="bg-gradient-to-r from-accent-purple to-accent-pink bg-clip-text text-transparent">
+            Contactez-moi
+          </span>
+        </h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+          Une idée de projet ? Discutons-en ensemble !
+        </p>
+      </div>
+
+      <div class="bg-slate-900/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-800/50">
+        <form class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Nom</label>
+              <input type="text"
+                class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-accent-purple focus:outline-none transition-colors"
+                placeholder="Votre nom">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Email</label>
+              <input type="email"
+                class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-accent-purple focus:outline-none transition-colors"
+                placeholder="votre@email.com">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Sujet</label>
+            <input type="text"
+              class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-accent-purple focus:outline-none transition-colors"
+              placeholder="Sujet de votre message">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Message</label>
+            <textarea rows="6"
+              class="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:border-accent-purple focus:outline-none transition-colors resize-none"
+              placeholder="Votre message..."></textarea>
+          </div>
+
+          <button type="submit"
+            class="w-full py-4 bg-gradient-to-r from-accent-purple to-accent-pink rounded-xl font-semibold hover:scale-105 transition-transform">
+            Envoyer le message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-slate-800/50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center text-slate-400">
+        <p>© 2024 <a href="#" class="text-accent-purple hover:text-accent-pink transition-colors">Kimou.dev</a> - Tous
+          droits réservés</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

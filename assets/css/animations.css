@@ -1,0 +1,414 @@
+/* ==========================================
+   ANIMATIONS FLUIDES ET ORGANIQUES
+   ========================================== */
+
+/* Breathing Animation - Plus organique que pulse */
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.05) translateY(-10px);
+        opacity: 0.5;
+    }
+}
+
+.animate-breathe {
+    animation: breathe 8s ease-in-out infinite;
+}
+
+.animate-breathe-slow {
+    animation: breathe 12s ease-in-out infinite;
+}
+
+/* Floating Animation - Mouvement fluide et naturel */
+@keyframes float-smooth {
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+
+    50% {
+        transform: translateY(-10px) translateX(-10px);
+    }
+
+    75% {
+        transform: translateY(-15px) translateX(5px);
+    }
+}
+
+.animate-float-smooth {
+    animation: float-smooth 20s ease-in-out infinite;
+}
+
+/* Morphing Background - Changement de forme organique */
+@keyframes morph {
+
+    0%,
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: rotate(90deg) scale(1.1);
+    }
+
+    50% {
+        border-radius: 50% 50% 30% 70% / 30% 70% 70% 30%;
+        transform: rotate(180deg) scale(0.9);
+    }
+
+    75% {
+        border-radius: 70% 30% 50% 50% / 60% 40% 60% 40%;
+        transform: rotate(270deg) scale(1.05);
+    }
+}
+
+.animate-morph {
+    animation: morph 30s ease-in-out infinite;
+}
+
+/* Glow Pulse - Lueur subtile */
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.animate-glow {
+    animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Fade In Up - Plus fluide */
+@keyframes fadeInUpSmooth {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUpSmooth 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide In - Entrée élégante */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px) rotate(-2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px) rotate(2deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scale In - Zoom élégant */
+@keyframes scaleInSmooth {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+.animate-scaleIn {
+    animation: scaleInSmooth 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Reveal Text - Animation de texte */
+@keyframes revealText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.animate-reveal {
+    animation: revealText 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Shimmer Effect - Effet de brillance */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Ripple Effect - Ondulation */
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.animate-ripple {
+    animation: ripple 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Magnetic Pull - Effet d'attraction */
+.magnetic {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.magnetic:hover {
+    transform: scale(1.05);
+}
+
+/* Smooth Hover - Transition douce */
+.smooth-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.smooth-hover:hover {
+    transform: translateY(-5px);
+}
+
+/* Blur In - Apparition avec flou */
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(20px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.animate-blurIn {
+    animation: blurIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Rotate In - Rotation élégante */
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-10deg) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+.animate-rotateIn {
+    animation: rotateIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Elastic Bounce - Rebond élastique */
+@keyframes elasticBounce {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.15);
+    }
+
+    40% {
+        transform: scale(0.95);
+    }
+
+    60% {
+        transform: scale(1.05);
+    }
+
+    80% {
+        transform: scale(0.98);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-elastic {
+    animation: elasticBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Parallax Layers */
+.parallax-slow {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.parallax-medium {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.parallax-fast {
+    transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Stagger Delays - Pour animations en cascade */
+.stagger-1 {
+    animation-delay: 0.1s;
+}
+
+.stagger-2 {
+    animation-delay: 0.2s;
+}
+
+.stagger-3 {
+    animation-delay: 0.3s;
+}
+
+.stagger-4 {
+    animation-delay: 0.4s;
+}
+
+.stagger-5 {
+    animation-delay: 0.5s;
+}
+
+.stagger-6 {
+    animation-delay: 0.6s;
+}
+
+.stagger-7 {
+    animation-delay: 0.7s;
+}
+
+.stagger-8 {
+    animation-delay: 0.8s;
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-bounce {
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.transition-elastic {
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+}
+
+/* Loading States */
+@keyframes skeleton {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.animate-skeleton {
+    animation: skeleton 2s ease-in-out infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+}
