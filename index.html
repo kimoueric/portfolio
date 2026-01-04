@@ -80,23 +80,40 @@
     </div>
   </div>
 
-  <!-- Cursor follower -->
-  <div id="cursor-follower"
-    class="fixed w-8 h-8 rounded-full border-2 border-white pointer-events-none z-50 mix-blend-difference hidden lg:block">
+
+  <!-- Section Sidebar Indicator -->
+  <div id="section-sidebar"
+    class="fixed left-8 top-1/2 -translate-y-1/2 z-30 hidden xl:flex flex-col items-start gap-8">
+    <div class="section-indicator h-12 w-[2px] bg-white/10 relative overflow-hidden">
+      <div id="sidebar-progress" class="absolute top-0 left-0 w-full bg-white h-0 transition-all duration-300"></div>
+    </div>
+    <div id="current-section-name"
+      class="text-[10px] tracking-[0.4em] uppercase font-bold vertical-text text-dark-500 whitespace-nowrap">
+      HOME
+    </div>
   </div>
+
 
   <!-- Navigation -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 py-4">
       <div
         class="flex items-center justify-between backdrop-blur-xl bg-dark-800/50 rounded-2xl px-6 py-3 border border-dark-700/50">
-        <!-- Logo -->
-        <a href="#hero" class="text-2xl font-bold text-white hover:text-dark-200 transition-colors">
-          K.dev
-        </a>
+        <!-- Left Group (Logo) -->
+        <div class="flex-1">
+          <a href="#hero" class="flex items-center gap-2 group w-max">
+            <span class="text-2xl font-bold text-white group-hover:text-dark-200 transition-colors">K.dev</span>
+            <div
+              class="flex h-3 w-4 rounded-[1px] overflow-hidden border border-white/10 opacity-70 group-hover:opacity-100 transition-opacity">
+              <div class="w-1/3 bg-[#FF8200]"></div>
+              <div class="w-1/3 bg-white"></div>
+              <div class="w-1/3 bg-[#009A44]"></div>
+            </div>
+          </a>
+        </div>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8">
+        <!-- Center Group (Menu) -->
+        <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-8">
           <a href="#hero" class="nav-link text-dark-400 hover:text-white transition-colors"
             data-i18n="nav.home">Accueil</a>
           <a href="#about" class="nav-link text-dark-400 hover:text-white transition-colors" data-i18n="nav.about">À
@@ -109,13 +126,25 @@
             data-i18n="nav.contact">Contact</a>
         </div>
 
-        <!-- Language Switcher -->
-        <div class="hidden md:flex items-center ml-4 border-l border-dark-700/50 pl-4 space-x-1">
-          <button data-switch-lang="fr"
-            class="text-xs font-bold px-2 py-1 rounded transition-all hover:text-white">FR</button>
-          <span class="text-dark-700 text-xs">/</span>
-          <button data-switch-lang="en"
-            class="text-xs font-bold px-2 py-1 rounded transition-all hover:text-white">EN</button>
+        <!-- Right Group (Date/Time + Lang) -->
+        <div class="flex items-center justify-end flex-1">
+          <!-- Date & Time -->
+          <div class="hidden lg:flex items-center border-l border-dark-700/50 pl-6 pointer-events-none">
+            <div class="flex flex-col items-end">
+              <span id="nav-time" class="text-xs font-mono font-bold text-white tracking-widest">00:00:00</span>
+              <span id="nav-date" class="text-[10px] uppercase font-medium text-dark-500 tracking-tighter">01 JAN
+                2026</span>
+            </div>
+          </div>
+
+          <!-- Language Switcher -->
+          <div class="hidden md:flex items-center ml-6 border-l border-dark-700/50 pl-4 space-x-1">
+            <button data-switch-lang="fr"
+              class="text-xs font-bold px-2 py-1 rounded transition-all hover:text-white">FR</button>
+            <span class="text-dark-700 text-xs">/</span>
+            <button data-switch-lang="en"
+              class="text-xs font-bold px-2 py-1 rounded transition-all hover:text-white">EN</button>
+          </div>
         </div>
 
 
@@ -165,6 +194,9 @@
 
   <!-- Hero Section -->
   <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <!-- Three.js Background -->
+    <div id="three-container" class="absolute inset-0 z-0 pointer-events-none"></div>
+
     <!-- Animated Background -->
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute w-96 h-96 bg-white/5 rounded-full blur-3xl -top-48 -left-48 animate-pulse"></div>
@@ -184,10 +216,11 @@
       <div class="text-center">
         <div class="hero-content">
           <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6">
-            <span class="block text-slate-400 text-2xl md:text-3xl font-normal mb-4" data-i18n="hero.greeting">Bonjour,
-              je suis</span>
-            <span class="text-white">
-              Kimou N'cho Guy-Eric
+            <span class="block text-slate-400 text-2xl md:text-3xl font-normal mb-4 reveal-text"
+              data-i18n="hero.greeting">Bonjour,
+              je suis </span>
+            <span class="text-white reveal-text" data-i18n="hero.name">
+              Eric Kimou
             </span>
           </h1>
 
@@ -200,18 +233,10 @@
 
 
           <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
-            <span class="px-4 py-2 bg-dark backdrop-blur-sm rounded-full border border-white text-sm text-white">
-              Next.js
-            </span>
-            <span class="px-4 py-2 bg-lime-600 backdrop-blur-sm rounded-full border border-lime-800 text-sm text-white">
-              Spring Boot
-            </span>
-            <span class="px-4 py-2 bg-red-600 backdrop-blur-sm rounded-full border border-red-800 text-sm text-white">
-              Apache Airflow
-            </span>
-            <span class="px-4 py-2 bg-blue-600 backdrop-blur-sm rounded-full border border-blue-800 text-sm text-white">
-              React
-            </span>
+            <span class="tech-tag tag-next">Next.js</span>
+            <span class="tech-tag tag-spring">Spring Boot</span>
+            <span class="tech-tag tag-airflow">Apache Airflow</span>
+            <span class="tech-tag tag-react">React</span>
           </div>
 
           <div class="flex flex-wrap items-center justify-center gap-4">
@@ -232,17 +257,14 @@
 
           <!-- Social Links -->
           <div class="flex items-center justify-center gap-6 mt-12">
-            <a href="#"
-              class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-purple-600/20 border border-slate-700/50 hover:border-accent-purple transition-all hover:scale-110">
-              <i class="fi fi-brands-github text-xl"></i>
+            <a href="https://github.com" target="_blank" class="social-link social-github">
+              <i class="fi fi-brands-github"></i>
             </a>
-            <a href="#"
-              class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-blue-600/20 border border-slate-700/50 hover:border-accent-blue transition-all hover:scale-110">
-              <i class="fi fi-brands-linkedin text-xl"></i>
+            <a href="https://linkedin.com" target="_blank" class="social-link social-linkedin">
+              <i class="fi fi-brands-linkedin"></i>
             </a>
-            <a href="#"
-              class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800/50 hover:bg-red-600/20 border border-slate-700/50 hover:border-accent-pink transition-all hover:scale-110">
-              <i class="fi fi-brands-google text-xl"></i>
+            <a href="mailto:contact@kimou.dev" class="social-link social-google">
+              <i class="fi fi-brands-google"></i>
             </a>
 
           </div>
@@ -270,7 +292,8 @@
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-      <h2 class="text-2xl md:text-3xl font-light mb-4 tracking-widest text-dark-300" data-i18n="newyear.welcome">
+      <h2 class="text-2xl md:text-3xl font-light mb-4 tracking-widest text-dark-300 reveal-text"
+        data-i18n="newyear.welcome">
         BIENVENUE EN</h2>
       <div class="relative inline-block">
         <span class="text-7xl md:text-9xl font-black tracking-tighter text-white">2026</span>
@@ -288,7 +311,10 @@
 
   <!-- About Section -->
   <section id="about" class="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <!-- Decorative Blobs -->
+    <div class="absolute top-1/2 left-0 w-64 h-64 bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10">
+
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="about-image">
           <div class="relative group">
@@ -304,8 +330,8 @@
         </div>
 
         <div class="about-content">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6">
-            <span class="text-white" data-i18n="about.title">À propos de moi</span>
+          <h2 class="text-white text-4xl md:text-5xl font-bold mb-6 reveal-text" data-i18n="about.title">
+            À propos de moi
           </h2>
 
           <p class="text-lg text-dark-300 mb-6 leading-relaxed" data-i18n="about.p1">
@@ -348,10 +374,13 @@
 
   <!-- Skills Section -->
   <section id="skills" class="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <!-- Decorative Blobs -->
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-[150px] pointer-events-none"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="text-white" data-i18n="skills.title">Mes Compétences</span>
+        <h2 class="text-white text-4xl md:text-5xl font-bold mb-4 reveal-text" data-i18n="skills.title">
+          Mes Compétences
         </h2>
         <p class="text-lg text-dark-400 max-w-2xl mx-auto" data-i18n="skills.subtitle">
           Technologies et outils que je maîtrise pour créer des solutions d'exception
@@ -368,6 +397,12 @@
               <img src="./assets/icons/react.svg" alt="React"
                 class="w-16 h-16 mx-auto mb-4  transition-all duration-500" />
               <h3 class="text-center font-medium text-dark-200 group-hover:text-white">React</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[90%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -379,6 +414,12 @@
               <img src="./assets/icons/nextjs.svg" alt="Next.js"
                 class="w-16 h-16 mx-auto mb-4  transition-all duration-500 invert" />
               <h3 class="text-center font-medium text-dark-200 group-hover:text-white">Next.js</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[85%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -390,6 +431,12 @@
               <img src="./assets/icons/spring-boot.svg" alt="Spring Boot"
                 class="w-16 h-16 mx-auto mb-4 transition-all duration-500" />
               <h3 class="text-center font-medium text-dark-200 group-hover:text-white">Spring Boot</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[80%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -401,6 +448,12 @@
               <img src="./assets/icons/airflow.png" alt="Apache Airflow"
                 class="w-16 h-16 mx-auto mb-4  transition-all duration-500" />
               <h3 class="text-center font-medium text-dark-200 group-hover:text-white">Airflow</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[75%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -412,6 +465,12 @@
               <img src="./assets/icons/docker.svg" alt="Docker"
                 class="w-16 h-16 mx-auto mb-4 transition-all duration-500" />
               <h3 class="text-center font-medium text-dark-200 group-hover:text-white">Docker</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[85%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -423,6 +482,12 @@
               <img src="./assets/icons/ts.svg" alt="TypeScript"
                 class="w-16 h-16 mx-auto mb-4 transition-all duration-500" />
               <h3 class="font-medium text-dark-200 group-hover:text-white">TypeScript</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[80%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -434,6 +499,12 @@
               <img src="./assets/icons/js.svg" alt="JavaScript"
                 class="w-16 h-16 mx-auto mb-4 transition-all duration-500" />
               <h3 class="font-medium text-dark-200 group-hover:text-white">JavaScript</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[90%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -445,19 +516,29 @@
               <img src="./assets/icons/java.svg" alt="Java"
                 class="w-16 h-16 mx-auto mb-4 transition-all duration-500" />
               <h3 class="font-medium text-dark-200 group-hover:text-white">Java</h3>
+              <div
+                class="mt-4 w-full h-[2px] bg-white/10 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
+                <div
+                  class="h-full bg-white w-[70%] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000">
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="min-h-screen flex items-center py-20 relative overflow-hidden">
+    <!-- Decorative Blobs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[180px] pointer-events-none"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="text-white" data-i18n="projects.title">Projets réalisés</span>
+        <h2 class="text-white text-4xl md:text-5xl font-bold mb-4 reveal-text" data-i18n="projects.title">
+          Projets réalisés
         </h2>
         <p class="text-lg text-dark-400 max-w-2xl mx-auto" data-i18n="projects.subtitle">
           Projets réalisés avec une approche méthodique et une attention aux détails
@@ -467,12 +548,11 @@
 
       <div class="grid md:grid-cols-2 gap-12">
         <!-- Project Card 1 -->
-        <div class="project-card group">
-          <div
-            class="relative bg-dark-800/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-dark-700/50 hover:border-white transition-all duration-700">
+        <div class="project-card group" data-project="rtsis">
+          <div class="relative bg-dark-800/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-dark-700/50">
             <div class="relative h-72 overflow-hidden">
               <img src="./assets/images/rtsis.jpg" alt="RTSIS"
-                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-opacity duration-1000" />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity">
               </div>
@@ -489,15 +569,13 @@
               </p>
 
               <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">Airflow</span>
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">Python</span>
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">ETL</span>
+                <span class="tech-tag tech-tag-sm tag-airflow">Airflow</span>
+                <span class="tech-tag tech-tag-sm tag-python">Python</span>
+                <span class="tech-tag tech-tag-sm tag-next">ETL</span>
               </div>
 
-              <a href="#" class="inline-flex items-center gap-3 text-white font-semibold group/link">
+              <span
+                class="project-discover inline-flex items-center gap-3 text-white font-semibold group/link cursor-pointer">
                 <span class="relative">
                   <span data-i18n="projects.discover">Découvrir le projet</span>
                   <span
@@ -508,19 +586,18 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
                   </path>
                 </svg>
-              </a>
+              </span>
             </div>
 
           </div>
         </div>
 
         <!-- Project Card 2 -->
-        <div class="project-card group">
-          <div
-            class="relative bg-dark-800/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-dark-700/50 hover:border-white transition-all duration-700">
+        <div class="project-card group" data-project="gdi">
+          <div class="relative bg-dark-800/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-dark-700/50">
             <div class="relative h-72 overflow-hidden">
               <img src="./assets/images/gdi.jpg" alt="GDI"
-                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-opacity duration-1000" />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity">
               </div>
@@ -537,15 +614,13 @@
               </p>
 
               <div class="flex flex-wrap gap-3 mb-8">
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">Next.js</span>
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">Spring</span>
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">Docker</span>
+                <span class="tech-tag tech-tag-sm tag-next">Next.js</span>
+                <span class="tech-tag tech-tag-sm tag-spring">Spring</span>
+                <span class="tech-tag tech-tag-sm tag-docker">Docker</span>
               </div>
 
-              <a href="#" class="inline-flex items-center gap-3 text-white font-semibold group/link">
+              <span
+                class="project-discover inline-flex items-center gap-3 text-white font-semibold group/link cursor-pointer">
                 <span class="relative">
                   <span data-i18n="projects.discover">Découvrir le projet</span>
                   <span
@@ -556,7 +631,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
                   </path>
                 </svg>
-              </a>
+              </span>
             </div>
 
           </div>
@@ -564,12 +639,11 @@
 
         <!-- Project Card 3 -->
 
-        <div class="project-card group">
-          <div
-            class="relative bg-dark-800/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-dark-700/50 hover:border-white transition-all duration-700">
+        <div class="project-card group" data-project="migration">
+          <div class="relative bg-dark-800/30 backdrop-blur-xl rounded-3xl overflow-hidden border border-dark-700/50">
             <div class="relative h-72 overflow-hidden">
               <img src="./assets/images/gdi.jpg" alt="GDI"
-                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-opacity duration-1000" />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity">
               </div>
@@ -587,14 +661,12 @@
               </p>
 
               <div class="flex flex-wrap gap-3 mb-8">
-
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">Docker</span>
-                <span
-                  class="px-4 py-1.5 bg-dark-800 border border-dark-600 rounded-full text-xs font-medium text-dark-200 uppercase tracking-wider">Airflow</span>
+                <span class="tech-tag tech-tag-sm tag-docker">Docker</span>
+                <span class="tech-tag tech-tag-sm tag-airflow">Airflow</span>
               </div>
 
-              <a href="#" class="inline-flex items-center gap-3 text-white font-semibold group/link">
+              <span
+                class="project-discover inline-flex items-center gap-3 text-white font-semibold group/link cursor-pointer">
                 <span class="relative">
                   <span data-i18n="projects.discover">Découvrir le projet</span>
                   <span
@@ -605,7 +677,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
                   </path>
                 </svg>
-              </a>
+              </span>
             </div>
 
           </div>
@@ -619,8 +691,8 @@
   <section id="contact" class="min-h-screen flex items-center py-20 relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-6 relative z-10 w-full">
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="text-white" data-i18n="contact.title">Contactez-moi</span>
+        <h2 class="text-white text-4xl md:text-5xl font-bold mb-4 reveal-text" data-i18n="contact.title">
+          Contactez-moi
         </h2>
         <p class="text-lg text-dark-400 max-w-2xl mx-auto" data-i18n="contact.subtitle">
           Prêt à initier une collaboration d'exception ?
@@ -689,9 +761,15 @@
   <footer class="py-12 border-t border-dark-800">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="text-2xl font-bold text-white">
+        <div class="text-2xl font-bold text-white flex items-center gap-3">
           K.dev
+          <div class="flex h-3 w-5 rounded-[1px] overflow-hidden border border-white/10 opacity-50">
+            <div class="w-1/3 bg-[#FF8200]"></div>
+            <div class="w-1/3 bg-white"></div>
+            <div class="w-1/3 bg-[#009A44]"></div>
+          </div>
         </div>
+
 
         <div class="text-dark-500 text-sm font-medium" data-i18n="footer.rights">
           © 2026 Kimou N'cho Guy-Eric. Tous droits réservés.
@@ -701,6 +779,9 @@
         <div class="flex items-center gap-6">
 
           <a href="#"
+            class="text-dark-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold"
+            data-i18n="nav.contact">Contact</a>
+          <a href="#"
             class="text-dark-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">LinkedIn</a>
           <a href="#"
             class="text-dark-400 hover:text-white transition-colors text-sm uppercase tracking-widest font-bold">GitHub</a>
@@ -708,6 +789,59 @@
       </div>
     </div>
   </footer>
+
+  <!-- Project Modal -->
+  <div id="project-modal"
+    class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-500">
+    <!-- Backdrop -->
+    <div class="modal-backdrop absolute inset-0 bg-black/95 backdrop-blur-xl"></div>
+
+    <!-- Modal Content -->
+    <div
+      class="modal-container relative w-full max-w-5xl bg-dark-900 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl transform scale-95 transition-all duration-500">
+
+      <!-- Close Button -->
+      <button id="modal-close"
+        class="absolute top-6 right-6 z-10 p-4 bg-white/5 hover:bg-white/10 rounded-full transition-colors group">
+        <svg class="w-6 h-6 text-white group-hover:rotate-90 transition-transform duration-500" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <div class="flex flex-col lg:flex-row h-full max-h-[90vh] overflow-y-auto lg:overflow-hidden">
+        <!-- Left: Image -->
+        <div class="lg:w-1/2 h-[300px] lg:h-auto relative overflow-hidden">
+          <img id="modal-img" src="" alt="Project" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60"></div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="lg:w-1/2 p-8 md:p-12 overflow-y-auto">
+          <div class="mb-8">
+            <span id="modal-tagline"
+              class="text-xs uppercase tracking-[0.3em] text-dark-500 font-bold mb-2 block"></span>
+            <h2 id="modal-title" class="text-4xl md:text-5xl font-bold text-white mb-6"></h2>
+            <div id="modal-desc" class="text-dark-300 leading-relaxed space-y-4"></div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-8 mb-10 pb-10 border-b border-white/5">
+            <div>
+              <h4 class="text-[10px] uppercase tracking-widest text-dark-500 font-bold mb-4"
+                data-i18n="projects.modal.tech">Technologies</h4>
+              <div id="modal-tech" class="flex flex-wrap gap-2"></div>
+            </div>
+            <div>
+              <h4 class="text-[10px] uppercase tracking-widest text-dark-500 font-bold mb-4"
+                data-i18n="projects.modal.duration">Durée</h4>
+              <p id="modal-duration" class="text-white font-medium"></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <!-- GSAP -->
@@ -720,6 +854,17 @@
   <!-- i18n -->
   <script src="./assets/js/translations.js"></script>
   <script src="./assets/js/i18n.js"></script>
+
+  <!-- Three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="./assets/js/three-scene.js"></script>
 
   <!-- Custom JS -->
   <script src="./assets/js/main.js"></script>

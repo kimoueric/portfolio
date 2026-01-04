@@ -1,8 +1,9 @@
 /* ==========================================
    MINIMALIST MONOCHROME THEME
-   ========================================== */
-
+   ==========================================*/
+/* Base styles */
 :root {
+  --cursor-size: 32px;
   --bg-color: #0a0a0a;
   --text-primary: #ffffff;
   --text-secondary: #adb5bd;
@@ -10,7 +11,23 @@
   --accent: #ffffff;
   --card-bg: rgba(33, 37, 41, 0.4);
   --border-color: rgba(255, 255, 255, 0.1);
+  /* Ivory Coast Colors */
+  --civ-orange: #FF8200;
+  --civ-white: #FFFFFF;
+  --civ-green: #009A44;
+
+  /* Tech Brand Colors */
+  --tag-react: #61DAFB;
+  --tag-next: #ffffff;
+  --tag-spring: #6DB33F;
+  --tag-airflow: #017CEE;
+  --tag-docker: #2496ED;
+  --tag-python: #3776AB;
+  --tag-java: #007396;
+  --tag-ts: #3178C6;
+  --tag-js: #F7DF1E;
 }
+
 
 body {
   font-family: 'Inter', sans-serif;
@@ -18,7 +35,24 @@ body {
   color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
+
+/* Noise Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 99;
+  filter: contrast(120%) brightness(120%);
+}
+
 
 /* Lenis Smooth Scroll */
 html.lenis {
@@ -104,6 +138,74 @@ html.lenis {
   box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
 }
 
+/* Premium Card Effects */
+.skill-card,
+.project-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  background: rgba(15, 15, 15, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: visible !important;
+  /* Allow glow to bleed out */
+}
+
+.skill-card:hover,
+.project-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Image behavior inside project cards */
+.project-card:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Disable heavy effects on Mobile */
+@media (max-width: 1024px) {
+  body::after {
+    display: none;
+  }
+
+  .skill-card,
+  .project-card {
+    transform: none !important;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .project-card img {
+    filter: none !important;
+  }
+
+  #three-container {
+    opacity: 0.15;
+  }
+}
+
+
+
+.project-card img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sidebar progress in Ivorian colors */
+#sidebar-progress {
+  background: linear-gradient(to bottom, var(--civ-orange), var(--civ-white), var(--civ-green)) !important;
+}
+
+#reading-progress {
+  background: linear-gradient(to right, var(--civ-orange), var(--civ-white), var(--civ-green)) !important;
+}
+
+
 /* Typography refinements */
 h1,
 h2,
@@ -155,6 +257,135 @@ h3 {
   transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Premium Tech Tags */
+.tech-tag {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border-width: 1px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: inline-block;
+}
+
+.tech-tag-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.65rem;
+}
+
+.tag-react {
+  background: rgba(97, 218, 251, 0.05);
+  border-color: rgba(97, 218, 251, 0.2);
+  color: var(--tag-react);
+}
+
+.tag-next {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.tag-spring {
+  background: rgba(109, 179, 63, 0.05);
+  border-color: rgba(109, 179, 63, 0.2);
+  color: var(--tag-spring);
+}
+
+.tag-airflow {
+  background: rgba(1, 124, 238, 0.05);
+  border-color: rgba(1, 124, 238, 0.2);
+  color: var(--tag-airflow);
+}
+
+.tag-docker {
+  background: rgba(36, 150, 237, 0.05);
+  border-color: rgba(36, 150, 237, 0.2);
+  color: var(--tag-docker);
+}
+
+.tag-ts {
+  background: rgba(49, 120, 198, 0.05);
+  border-color: rgba(49, 120, 198, 0.2);
+  color: var(--tag-ts);
+}
+
+.tag-js {
+  background: rgba(247, 223, 30, 0.05);
+  border-color: rgba(247, 223, 30, 0.2);
+  color: var(--tag-js);
+}
+
+.tag-java {
+  background: rgba(0, 115, 150, 0.05);
+  border-color: rgba(0, 115, 150, 0.2);
+  color: var(--tag-java);
+}
+
+.tech-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-color: currentColor;
+}
+
+/* Premium Social Icons */
+.social-link {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border-width: 1px;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-link i {
+  font-size: 1.25rem;
+  transition: color 0.3s;
+  z-index: 10;
+  color: #adb5bd;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--social-color, #fff);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+
+.social-link:hover {
+  border-color: var(--social-color, #fff);
+  box-shadow: 0 0 20px var(--social-glow, rgba(255, 255, 255, 0.2));
+}
+
+.social-link:hover i {
+  color: #fff;
+}
+
+.social-github {
+  --social-color: rgba(255, 255, 255, 0.1);
+  --social-glow: rgba(255, 255, 255, 0.2);
+}
+
+.social-linkedin {
+  --social-color: rgba(0, 119, 181, 0.1);
+  --social-glow: rgba(0, 119, 181, 0.3);
+}
+
+.social-google {
+  --social-color: rgba(219, 68, 55, 0.1);
+  --social-glow: rgba(219, 68, 55, 0.3);
+}
+
 /* New Year Section subtle glow */
 #new-year .text-white {
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
@@ -176,4 +407,64 @@ h3 {
 
 [data-switch-lang]:hover {
   color: #ffffff;
+}
+
+/* Three.js Container */
+#three-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#three-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Modal States */
+#project-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#project-modal.open .modal-container {
+  transform: scale(1);
+}
+
+.modal-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.modal-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Vertical Text Utility */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+#section-sidebar {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#section-sidebar.visible {
+  opacity: 1;
 }

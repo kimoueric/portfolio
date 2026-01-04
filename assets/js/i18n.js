@@ -68,6 +68,21 @@ function setLanguage(lang) {
 
     });
 
+    // Refresh UI components
+    if (typeof updateSectionSidebar === 'function') {
+        updateSectionSidebar();
+    }
+
+    if (typeof updateDateTime === 'function') {
+        updateDateTime();
+    }
+
+    // Re-initialize text splitting for elements that were updated
+    if (typeof window.initTextAnimations === 'function') {
+        const updatedElements = document.querySelectorAll('.reveal-text');
+        updatedElements.forEach(el => window.initTextAnimations(el));
+    }
+
     // Refresh ScrollTrigger if it exists
     if (typeof ScrollTrigger !== 'undefined') {
         ScrollTrigger.refresh();
