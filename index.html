@@ -97,12 +97,27 @@
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#hero" class="nav-link text-dark-400 hover:text-white transition-colors">Accueil</a>
-          <a href="#about" class="nav-link text-dark-400 hover:text-white transition-colors">À propos</a>
-          <a href="#skills" class="nav-link text-dark-400 hover:text-white transition-colors">Compétences</a>
-          <a href="#projects" class="nav-link text-dark-400 hover:text-white transition-colors">Projets</a>
-          <a href="#contact" class="nav-link text-dark-400 hover:text-white transition-colors">Contact</a>
+          <a href="#hero" class="nav-link text-dark-400 hover:text-white transition-colors"
+            data-i18n="nav.home">Accueil</a>
+          <a href="#about" class="nav-link text-dark-400 hover:text-white transition-colors" data-i18n="nav.about">À
+            propos</a>
+          <a href="#skills" class="nav-link text-dark-400 hover:text-white transition-colors"
+            data-i18n="nav.skills">Compétences</a>
+          <a href="#projects" class="nav-link text-dark-400 hover:text-white transition-colors"
+            data-i18n="nav.projects">Projets</a>
+          <a href="#contact" class="nav-link text-dark-400 hover:text-white transition-colors"
+            data-i18n="nav.contact">Contact</a>
         </div>
+
+        <!-- Language Switcher -->
+        <div class="hidden md:flex items-center ml-4 border-l border-dark-700/50 pl-4 space-x-1">
+          <button data-switch-lang="fr"
+            class="text-xs font-bold px-2 py-1 rounded transition-all hover:text-white">FR</button>
+          <span class="text-dark-700 text-xs">/</span>
+          <button data-switch-lang="en"
+            class="text-xs font-bold px-2 py-1 rounded transition-all hover:text-white">EN</button>
+        </div>
+
 
 
 
@@ -127,12 +142,25 @@
       </svg>
     </button>
     <div class="flex flex-col items-center space-y-8 text-3xl font-bold tracking-tighter">
-      <a href="#hero" class="mobile-nav-link text-dark-400 hover:text-white transition-colors">ACCUEIL</a>
-      <a href="#about" class="mobile-nav-link text-dark-400 hover:text-white transition-colors">À PROPOS</a>
-      <a href="#skills" class="mobile-nav-link text-dark-400 hover:text-white transition-colors">COMPÉTENCES</a>
-      <a href="#projects" class="mobile-nav-link text-dark-400 hover:text-white transition-colors">PROJETS</a>
-      <a href="#contact" class="mobile-nav-link text-dark-400 hover:text-white transition-colors">CONTACT</a>
+      <a href="#hero" class="mobile-nav-link text-dark-400 hover:text-white transition-colors"
+        data-i18n="nav.home">ACCUEIL</a>
+      <a href="#about" class="mobile-nav-link text-dark-400 hover:text-white transition-colors" data-i18n="nav.about">À
+        PROPOS</a>
+      <a href="#skills" class="mobile-nav-link text-dark-400 hover:text-white transition-colors"
+        data-i18n="nav.skills">COMPÉTENCES</a>
+      <a href="#projects" class="mobile-nav-link text-dark-400 hover:text-white transition-colors"
+        data-i18n="nav.projects">PROJETS</a>
+      <a href="#contact" class="mobile-nav-link text-dark-400 hover:text-white transition-colors"
+        data-i18n="nav.contact">CONTACT</a>
     </div>
+
+    <!-- Mobile Language Switcher -->
+    <div class="mt-12 flex items-center space-x-4 border-t border-white/10 pt-8">
+      <button data-switch-lang="fr" class="text-xl font-bold px-4 py-2 rounded transition-all">FR</button>
+      <span class="text-dark-700 text-xl">/</span>
+      <button data-switch-lang="en" class="text-xl font-bold px-4 py-2 rounded transition-all">EN</button>
+    </div>
+
   </div>
 
   <!-- Hero Section -->
@@ -156,18 +184,20 @@
       <div class="text-center">
         <div class="hero-content">
           <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6">
-            <span class="block text-slate-400 text-2xl md:text-3xl font-normal mb-4">Bonjour, je suis</span>
+            <span class="block text-slate-400 text-2xl md:text-3xl font-normal mb-4" data-i18n="hero.greeting">Bonjour,
+              je suis</span>
             <span class="text-white">
               Kimou N'cho Guy-Eric
             </span>
           </h1>
 
-          <p class="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-8 max-w-3xl mx-auto">
+          <p class="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-8 max-w-3xl mx-auto" data-i18n="hero.description">
             Développeur <span class="text-accent-blue font-semibold">Full Stack</span> passionné par la création
             d'expériences web
             <span class="text-accent-green font-semibold">innovantes</span> et <span
               class="text-accent-purple font-semibold">performantes</span>
           </p>
+
 
           <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
             <span class="px-4 py-2 bg-dark backdrop-blur-sm rounded-full border border-white text-sm text-white">
@@ -187,15 +217,17 @@
           <div class="flex flex-wrap items-center justify-center gap-4">
             <a href="#projects"
               class="group relative px-8 py-4 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full font-semibold overflow-hidden transition-all hover:scale-105">
-              <span class="relative z-10">Voir mes projets</span>
+              <span class="relative z-10" data-i18n="hero.projects">Voir mes projets</span>
               <div
                 class="absolute inset-0 bg-gradient-to-r from-accent-pink to-accent-purple opacity-0 group-hover:opacity-100 transition-opacity">
               </div>
             </a>
             <a href="#contact"
-              class="px-8 py-4 border-2 border-slate-700 rounded-full font-semibold hover:bg-slate-800/50 transition-all hover:scale-105">
+              class="px-8 py-4 border-2 border-slate-700 rounded-full font-semibold hover:bg-slate-800/50 transition-all hover:scale-105"
+              data-i18n="hero.contact">
               Me contacter
             </a>
+
           </div>
 
           <!-- Social Links -->
@@ -238,17 +270,20 @@
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-      <h2 class="text-2xl md:text-3xl font-light mb-4 tracking-widest text-dark-300">BIENVENUE EN</h2>
+      <h2 class="text-2xl md:text-3xl font-light mb-4 tracking-widest text-dark-300" data-i18n="newyear.welcome">
+        BIENVENUE EN</h2>
       <div class="relative inline-block">
         <span class="text-7xl md:text-9xl font-black tracking-tighter text-white">2026</span>
         <div class="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-white/30"></div>
         <div class="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-white/30"></div>
       </div>
-      <p class="mt-8 text-lg md:text-xl text-dark-400 max-w-2xl mx-auto leading-relaxed italic">
+      <p class="mt-8 text-lg md:text-xl text-dark-400 max-w-2xl mx-auto leading-relaxed italic"
+        data-i18n="newyear.quote">
         "Que cette nouvelle année soit synonyme d'innovation, de succès et de projets passionnants. Belle année à tous
         !"
       </p>
     </div>
+
   </section>
 
   <!-- About Section -->
@@ -270,15 +305,15 @@
 
         <div class="about-content">
           <h2 class="text-4xl md:text-5xl font-bold mb-6">
-            <span class="text-white">À propos de moi</span>
+            <span class="text-white" data-i18n="about.title">À propos de moi</span>
           </h2>
 
-          <p class="text-lg text-dark-300 mb-6 leading-relaxed">
+          <p class="text-lg text-dark-300 mb-6 leading-relaxed" data-i18n="about.p1">
             Je suis <span class="text-white font-semibold">Kimou N'cho Guy-Eric</span>, développeur Full Stack passionné
             avec une expertise en développement web moderne et en orchestration de données.
           </p>
 
-          <p class="text-lg text-dark-400 mb-6 leading-relaxed">
+          <p class="text-lg text-dark-400 mb-6 leading-relaxed" data-i18n="about.p2">
             Spécialisé dans <span
               class="text-white font-semibold underline decoration-dark-500 underline-offset-4">Next.js</span>, <span
               class="text-white font-semibold underline decoration-dark-500 underline-offset-4">Spring Boot</span>, et
@@ -288,7 +323,7 @@
             que des pipelines ETL performants pour traiter et intégrer les données.
           </p>
 
-          <p class="text-lg text-dark-400 mb-8 leading-relaxed">
+          <p class="text-lg text-dark-400 mb-8 leading-relaxed" data-i18n="about.p3">
             Mon objectif est de concevoir des applications performantes avec une expérience utilisateur exceptionnelle,
             tout en garantissant la qualité et la maintenabilité du code , aussi bien que dans la gestion des
             traitements
@@ -299,13 +334,14 @@
 
           <a href="#"
             class="inline-flex items-center gap-2 px-8 py-4 bg-white text-dark-900 rounded-full font-semibold hover:bg-dark-100 transition-all hover:scale-105">
-            <span>Télécharger mon CV</span>
+            <span data-i18n="about.cv">Télécharger mon CV</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
             </svg>
           </a>
         </div>
+
       </div>
     </div>
   </section>
@@ -315,12 +351,13 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="text-white">Mes Compétences</span>
+          <span class="text-white" data-i18n="skills.title">Mes Compétences</span>
         </h2>
-        <p class="text-lg text-dark-400 max-w-2xl mx-auto">
+        <p class="text-lg text-dark-400 max-w-2xl mx-auto" data-i18n="skills.subtitle">
           Technologies et outils que je maîtrise pour créer des solutions d'exception
         </p>
       </div>
+
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <!-- Skill Cards with grayscale filter until hover -->
@@ -420,12 +457,13 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="text-white">Projets réalisés</span>
+          <span class="text-white" data-i18n="projects.title">Projets réalisés</span>
         </h2>
-        <p class="text-lg text-dark-400 max-w-2xl mx-auto">
+        <p class="text-lg text-dark-400 max-w-2xl mx-auto" data-i18n="projects.subtitle">
           Projets réalisés avec une approche méthodique et une attention aux détails
         </p>
       </div>
+
 
       <div class="grid md:grid-cols-2 gap-12">
         <!-- Project Card 1 -->
@@ -441,10 +479,11 @@
             </div>
 
             <div class="relative p-10">
-              <h3 class="text-3xl font-bold mb-3 text-white">RTSIS</h3>
-              <p class="text-sm font-medium text-dark-400 mb-6 uppercase tracking-widest">Real-time Information
+              <h3 class="text-3xl font-bold mb-3 text-white" data-i18n="projects.rtsis.title">RTSIS</h3>
+              <p class="text-sm font-medium text-dark-400 mb-6 uppercase tracking-widest"
+                data-i18n="projects.rtsis.tagline">Real-time Information
                 Supervision</p>
-              <p class="text-dark-300 mb-8 max-w-md leading-relaxed">
+              <p class="text-dark-300 mb-8 max-w-md leading-relaxed" data-i18n="projects.rtsis.desc">
                 Système d'ingestion critique pour le secteur bancaire. Orchestration de flux temps réel garantissant
                 l'intégrité et la disponibilité des données décisionnelles.
               </p>
@@ -460,7 +499,7 @@
 
               <a href="#" class="inline-flex items-center gap-3 text-white font-semibold group/link">
                 <span class="relative">
-                  Découvrir le projet
+                  <span data-i18n="projects.discover">Découvrir le projet</span>
                   <span
                     class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover/link:w-full"></span>
                 </span>
@@ -471,6 +510,7 @@
                 </svg>
               </a>
             </div>
+
           </div>
         </div>
 
@@ -487,10 +527,11 @@
             </div>
 
             <div class="relative p-10">
-              <h3 class="text-3xl font-bold mb-3 text-white">GDI</h3>
-              <p class="text-sm font-medium text-dark-400 mb-6 uppercase tracking-widest">Gestion Données Interbancaires
+              <h3 class="text-3xl font-bold mb-3 text-white" data-i18n="projects.gdi.title">GDI</h3>
+              <p class="text-sm font-medium text-dark-400 mb-6 uppercase tracking-widest"
+                data-i18n="projects.gdi.tagline">Gestion Données Interbancaires
               </p>
-              <p class="text-dark-300 mb-8 max-w-md leading-relaxed">
+              <p class="text-dark-300 mb-8 max-w-md leading-relaxed" data-i18n="projects.gdi.desc">
                 Plateforme full-stack unifiant les processus de reporting réglementaire. Architecture distribuée
                 permettant une scalabilité horizontale sans compromis.
               </p>
@@ -506,7 +547,7 @@
 
               <a href="#" class="inline-flex items-center gap-3 text-white font-semibold group/link">
                 <span class="relative">
-                  Découvrir le projet
+                  <span data-i18n="projects.discover">Découvrir le projet</span>
                   <span
                     class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover/link:w-full"></span>
                 </span>
@@ -517,6 +558,7 @@
                 </svg>
               </a>
             </div>
+
           </div>
         </div>
 
@@ -534,11 +576,12 @@
             </div>
 
             <div class="relative p-10">
-              <h3 class="text-3xl font-bold mb-3 text-white">MIGRATION BI</h3>
-              <p class="text-sm font-medium text-dark-400 mb-6 uppercase tracking-widest">Migration Business
+              <h3 class="text-3xl font-bold mb-3 text-white" data-i18n="projects.migration.title">MIGRATION BI</h3>
+              <p class="text-sm font-medium text-dark-400 mb-6 uppercase tracking-widest"
+                data-i18n="projects.migration.tagline">Migration Business
                 Intelligence
               </p>
-              <p class="text-dark-300 mb-8 max-w-md leading-relaxed">
+              <p class="text-dark-300 mb-8 max-w-md leading-relaxed" data-i18n="projects.migration.desc">
                 Migration des processus de reporting réglementaire. Architecture distribuée
                 permettant une scalabilité horizontale sans compromis.
               </p>
@@ -553,7 +596,7 @@
 
               <a href="#" class="inline-flex items-center gap-3 text-white font-semibold group/link">
                 <span class="relative">
-                  Découvrir le projet
+                  <span data-i18n="projects.discover">Découvrir le projet</span>
                   <span
                     class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-500 group-hover/link:w-full"></span>
                 </span>
@@ -564,6 +607,7 @@
                 </svg>
               </a>
             </div>
+
           </div>
         </div>
 
@@ -576,12 +620,13 @@
     <div class="max-w-4xl mx-auto px-6 relative z-10 w-full">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="text-white">Contactez-moi</span>
+          <span class="text-white" data-i18n="contact.title">Contactez-moi</span>
         </h2>
-        <p class="text-lg text-dark-400 max-w-2xl mx-auto">
+        <p class="text-lg text-dark-400 max-w-2xl mx-auto" data-i18n="contact.subtitle">
           Prêt à initier une collaboration d'exception ?
         </p>
       </div>
+
 
       <div
         class="bg-dark-800/30 backdrop-blur-xl rounded-3xl p-12 border border-dark-700/50 group hover:border-white transition-all duration-700">
@@ -589,40 +634,44 @@
           <div class="grid md:grid-cols-2 gap-8">
             <div class="group/field">
               <label
-                class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors">Nom</label>
+                class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors"
+                data-i18n="contact.name">Nom</label>
               <input type="text"
                 class="w-full px-0 py-3 bg-transparent border-b border-dark-700 focus:border-white focus:outline-none transition-all duration-500"
-                placeholder="Votre nom">
+                placeholder="Votre nom" data-i18n="contact.name_placeholder">
             </div>
             <div class="group/field">
               <label
-                class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors">Email</label>
+                class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors"
+                data-i18n="contact.email">Email</label>
               <input type="email"
                 class="w-full px-0 py-3 bg-transparent border-b border-dark-700 focus:border-white focus:outline-none transition-all duration-500"
-                placeholder="votre@email.com">
+                placeholder="votre@email.com" data-i18n="contact.email_placeholder">
             </div>
           </div>
 
           <div class="group/field">
             <label
-              class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors">Sujet</label>
+              class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors"
+              data-i18n="contact.subject">Sujet</label>
             <input type="text"
               class="w-full px-0 py-3 bg-transparent border-b border-dark-700 focus:border-white focus:outline-none transition-all duration-500"
-              placeholder="Sujet de votre message">
+              placeholder="Sujet de votre message" data-i18n="contact.subject_placeholder">
           </div>
 
           <div class="group/field">
             <label
-              class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors">Message</label>
+              class="block text-xs font-semibold uppercase tracking-widest mb-3 text-dark-500 group-focus-within/field:text-white transition-colors"
+              data-i18n="contact.message">Message</label>
             <textarea rows="4"
               class="w-full px-0 py-3 bg-transparent border-b border-dark-700 focus:border-white focus:outline-none transition-all duration-500 resize-none"
-              placeholder="Votre message..."></textarea>
+              placeholder="Votre message..." data-i18n="contact.message_placeholder"></textarea>
           </div>
 
           <button type="submit"
             class="group relative w-full py-5 bg-white text-dark-900 rounded-full font-bold overflow-hidden transition-all hover:scale-[1.02] active:scale-95">
             <span class="relative z-10 flex items-center justify-center gap-3">
-              Envoyer le message
+              <span data-i18n="contact.submit">Envoyer le message</span>
               <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
@@ -631,6 +680,7 @@
             </span>
           </button>
         </form>
+
       </div>
     </div>
   </section>
@@ -640,12 +690,13 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="text-2xl font-bold text-white">
-          Kimou.dev
+          K.dev
         </div>
 
-        <div class="text-dark-500 text-sm font-medium">
-          © 2026 Kimou N'cho Guy-Eric. All rights reserved.
+        <div class="text-dark-500 text-sm font-medium" data-i18n="footer.rights">
+          © 2026 Kimou N'cho Guy-Eric. Tous droits réservés.
         </div>
+
 
         <div class="flex items-center gap-6">
 
@@ -665,6 +716,10 @@
 
   <!-- Lenis -->
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- i18n -->
+  <script src="./assets/js/translations.js"></script>
+  <script src="./assets/js/i18n.js"></script>
 
   <!-- Custom JS -->
   <script src="./assets/js/main.js"></script>

@@ -159,3 +159,21 @@ h3 {
 #new-year .text-white {
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
+
+/* Language Switcher */
+[data-switch-lang] {
+  position: relative;
+  cursor: pointer;
+}
+
+[data-switch-lang].active {
+  color: #ffffff;
+}
+
+[data-switch-lang]:not(.active) {
+  color: #6c757d;
+}
+
+[data-switch-lang]:hover {
+  color: #ffffff;
+}
