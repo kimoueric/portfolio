@@ -19,6 +19,7 @@
   /* Tech Brand Colors */
   --tag-react: #61DAFB;
   --tag-next: #ffffff;
+  --tag-beam: #FF8200;
   --tag-spring: #6DB33F;
   --tag-airflow: #017CEE;
   --tag-docker: #2496ED;
@@ -285,6 +286,12 @@ h3 {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.2);
   color: #fff;
+}
+
+.tag-beam {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--tag-beam);
 }
 
 .tag-spring {
